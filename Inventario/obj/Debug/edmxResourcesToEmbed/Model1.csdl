@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="inventario" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="inventarioEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="cliente" EntityType="inventario.cliente" />
+    <EntitySet Name="entradaTarima" EntityType="inventario.entradaTarima" />
+    <EntitySet Name="inventario" EntityType="inventario.inventario" />
+    <EntitySet Name="ordenOrigen" EntityType="inventario.ordenOrigen" />
+    <EntitySet Name="ordenResultado" EntityType="inventario.ordenResultado" />
+    <EntitySet Name="ordenTrabajo" EntityType="inventario.ordenTrabajo" />
+    <EntitySet Name="proceso" EntityType="inventario.proceso" />
+    <EntitySet Name="reciboEntrada" EntityType="inventario.reciboEntrada" />
+    <EntitySet Name="reciboentradasacos" EntityType="inventario.reciboentradasacos" />
+    <EntitySet Name="reciboSalida" EntityType="inventario.reciboSalida" />
+    <EntitySet Name="reciboSalidaOrigen" EntityType="inventario.reciboSalidaOrigen" />
+    <EntitySet Name="recibosalidasacos" EntityType="inventario.recibosalidasacos" />
+    <EntitySet Name="rol" EntityType="inventario.rol" />
+    <EntitySet Name="salidaTarima" EntityType="inventario.salidaTarima" />
+    <EntitySet Name="usuario" EntityType="inventario.usuario" />
+    <AssociationSet Name="idcliente" Association="inventario.idcliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="inventario" EntitySet="inventario" />
+    </AssociationSet>
+    <AssociationSet Name="idusuario" Association="inventario.idusuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="idreciboentradatarima" Association="inventario.idreciboentradatarima">
+      <End Role="reciboEntrada" EntitySet="reciboEntrada" />
+      <End Role="entradaTarima" EntitySet="entradaTarima" />
+    </AssociationSet>
+    <AssociationSet Name="idinventarioentrada" Association="inventario.idinventarioentrada">
+      <End Role="inventario" EntitySet="inventario" />
+      <End Role="reciboEntrada" EntitySet="reciboEntrada" />
+    </AssociationSet>
+    <AssociationSet Name="idinventarioorden" Association="inventario.idinventarioorden">
+      <End Role="inventario" EntitySet="inventario" />
+      <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
+    </AssociationSet>
+    <AssociationSet Name="idinventariosalida" Association="inventario.idinventariosalida">
+      <End Role="inventario" EntitySet="inventario" />
+      <End Role="reciboSalida" EntitySet="reciboSalida" />
+    </AssociationSet>
+    <AssociationSet Name="idordentrabajo" Association="inventario.idordentrabajo">
+      <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
+      <End Role="ordenOrigen" EntitySet="ordenOrigen" />
+    </AssociationSet>
+    <AssociationSet Name="idordentrabajoresultado" Association="inventario.idordentrabajoresultado">
+      <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
+      <End Role="ordenResultado" EntitySet="ordenResultado" />
+    </AssociationSet>
+    <AssociationSet Name="idreciboentradasacos" Association="inventario.idreciboentradasacos">
+      <End Role="reciboEntrada" EntitySet="reciboEntrada" />
+      <End Role="reciboentradasacos" EntitySet="reciboentradasacos" />
+    </AssociationSet>
+    <AssociationSet Name="idrecibosalida" Association="inventario.idrecibosalida">
+      <End Role="reciboSalida" EntitySet="reciboSalida" />
+      <End Role="reciboSalidaOrigen" EntitySet="reciboSalidaOrigen" />
+    </AssociationSet>
+    <AssociationSet Name="idrecibosalidasacos" Association="inventario.idrecibosalidasacos">
+      <End Role="reciboSalida" EntitySet="reciboSalida" />
+      <End Role="recibosalidasacos" EntitySet="recibosalidasacos" />
+    </AssociationSet>
+    <AssociationSet Name="idrecibosalidatarima" Association="inventario.idrecibosalidatarima">
+      <End Role="reciboSalida" EntitySet="reciboSalida" />
+      <End Role="salidaTarima" EntitySet="salidaTarima" />
+    </AssociationSet>
+    <AssociationSet Name="idrol" Association="inventario.idrol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="idcliente" />
+    </Key>
+    <Property Name="idcliente" Type="Int32" Nullable="false" />
+    <Property Name="idusuario" Type="Int32" Nullable="false" />
+    <Property Name="nombrecliente" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="inventario" Relationship="inventario.idcliente" FromRole="cliente" ToRole="inventario" />
+    <NavigationProperty Name="usuario" Relationship="inventario.idusuario" FromRole="cliente" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="entradaTarima">
+    <Key>
+      <PropertyRef Name="idtarimaentrada" />
+    </Key>
+    <Property Name="idtarimaentrada" Type="Int32" Nullable="false" />
+    <Property Name="idreciboentrada" Type="Int32" Nullable="false" />
+    <Property Name="peso" Type="Double" Nullable="false" />
+    <NavigationProperty Name="reciboEntrada" Relationship="inventario.idreciboentradatarima" FromRole="entradaTarima" ToRole="reciboEntrada" />
+  </EntityType>
+  <EntityType Name="inventario">
+    <Key>
+      <PropertyRef Name="idinventario" />
+    </Key>
+    <Property Name="idinventario" Type="Int32" Nullable="false" />
+    <Property Name="idcliente" Type="Int32" Nullable="false" />
+    <Property Name="nombreinventario" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="cliente" Relationship="inventario.idcliente" FromRole="inventario" ToRole="cliente" />
+    <NavigationProperty Name="reciboEntrada" Relationship="inventario.idinventarioentrada" FromRole="inventario" ToRole="reciboEntrada" />
+    <NavigationProperty Name="ordenTrabajo" Relationship="inventario.idinventarioorden" FromRole="inventario" ToRole="ordenTrabajo" />
+    <NavigationProperty Name="reciboSalida" Relationship="inventario.idinventariosalida" FromRole="inventario" ToRole="reciboSalida" />
+  </EntityType>
+  <EntityType Name="ordenOrigen">
+    <Key>
+      <PropertyRef Name="idordenorigen" />
+      <PropertyRef Name="tipoelemento" />
+    </Key>
+    <Property Name="idordenorigen" Type="Int32" Nullable="false" />
+    <Property Name="tipoelemento" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="idordentrabajo" Type="Int32" Nullable="false" />
+    <Property Name="calidad" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="cantidadsacos" Type="Int32" />
+    <Property Name="pesoneto" Type="Double" />
+    <NavigationProperty Name="ordenTrabajo" Relationship="inventario.idordentrabajo" FromRole="ordenOrigen" ToRole="ordenTrabajo" />
+  </EntityType>
+  <EntityType Name="ordenResultado">
+    <Key>
+      <PropertyRef Name="idordenresultados" />
+      <PropertyRef Name="tipoelemento" />
+    </Key>
+    <Property Name="idordenresultados" Type="Int32" Nullable="false" />
+    <Property Name="tipoelemento" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="idordentrabajo" Type="Int32" Nullable="false" />
+    <Property Name="calidad" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="cantidadsacos" Type="Int32" />
+    <Property Name="pesoneto" Type="Double" />
+    <NavigationProperty Name="ordenTrabajo" Relationship="inventario.idordentrabajoresultado" FromRole="ordenResultado" ToRole="ordenTrabajo" />
+  </EntityType>
+  <EntityType Name="ordenTrabajo">
+    <Key>
+      <PropertyRef Name="idordentrabajo" />
+    </Key>
+    <Property Name="idordentrabajo" Type="Int32" Nullable="false" />
+    <Property Name="idinventario" Type="Int32" Nullable="false" />
+    <Property Name="cliente" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cantidadsacos" Type="Int32" />
+    <Property Name="pesototal" Type="Double" />
+    <Property Name="observaciones" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="inventario" Relationship="inventario.idinventarioorden" FromRole="ordenTrabajo" ToRole="inventario" />
+    <NavigationProperty Name="ordenOrigen" Relationship="inventario.idordentrabajo" FromRole="ordenTrabajo" ToRole="ordenOrigen" />
+    <NavigationProperty Name="ordenResultado" Relationship="inventario.idordentrabajoresultado" FromRole="ordenTrabajo" ToRole="ordenResultado" />
+  </EntityType>
+  <EntityType Name="proceso">
+    <Key>
+      <PropertyRef Name="idproceso" />
+    </Key>
+    <Property Name="idproceso" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reciboEntrada">
+    <Key>
+      <PropertyRef Name="idreciboentrada" />
+    </Key>
+    <Property Name="idreciboentrada" Type="Int32" Nullable="false" />
+    <Property Name="idinventario" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="calidad" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="cantidadsacos" Type="Int32" />
+    <Property Name="cliente" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="pesototalsacos" Type="Double" />
+    <Property Name="contrato" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="guia" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="placa" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="ubicacion" Type="Int32" />
+    <Property Name="pesotarimasvacias" Type="Double" />
+    <Property Name="pesobruto" Type="Double" />
+    <Property Name="pesoneto" Type="Double" />
+    <Property Name="observaciones" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+    <Property Name="pesototaltarimas" Type="Double" />
+    <NavigationProperty Name="entradaTarima" Relationship="inventario.idreciboentradatarima" FromRole="reciboEntrada" ToRole="entradaTarima" />
+    <NavigationProperty Name="inventario" Relationship="inventario.idinventarioentrada" FromRole="reciboEntrada" ToRole="inventario" />
+    <NavigationProperty Name="reciboentradasacos" Relationship="inventario.idreciboentradasacos" FromRole="reciboEntrada" ToRole="reciboentradasacos" />
+  </EntityType>
+  <EntityType Name="reciboentradasacos">
+    <Key>
+      <PropertyRef Name="idreciboentradasacos" />
+      <PropertyRef Name="idreciboentrada" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="tipo" />
+      <PropertyRef Name="tara" />
+    </Key>
+    <Property Name="idreciboentradasacos" Type="Int32" Nullable="false" />
+    <Property Name="idreciboentrada" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="tara" Type="Double" Nullable="false" />
+    <NavigationProperty Name="reciboEntrada" Relationship="inventario.idreciboentradasacos" FromRole="reciboentradasacos" ToRole="reciboEntrada" />
+  </EntityType>
+  <EntityType Name="reciboSalida">
+    <Key>
+      <PropertyRef Name="idrecibosalida" />
+    </Key>
+    <Property Name="idrecibosalida" Type="Int32" Nullable="false" />
+    <Property Name="idinventario" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cliente" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="calidad" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="cantidadsacos" Type="Int32" />
+    <Property Name="contrato" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="guia" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="placa" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="ubicacion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="pesototaltarimas" Type="Double" />
+    <Property Name="pesotarimasvacias" Type="Double" />
+    <Property Name="pesobruto" Type="Double" />
+    <Property Name="tarasacos" Type="Double" />
+    <Property Name="pesoneto" Type="Double" />
+    <Property Name="tiposaco" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="observaciones" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="inventario" Relationship="inventario.idinventariosalida" FromRole="reciboSalida" ToRole="inventario" />
+    <NavigationProperty Name="reciboSalidaOrigen" Relationship="inventario.idrecibosalida" FromRole="reciboSalida" ToRole="reciboSalidaOrigen" />
+    <NavigationProperty Name="recibosalidasacos" Relationship="inventario.idrecibosalidasacos" FromRole="reciboSalida" ToRole="recibosalidasacos" />
+    <NavigationProperty Name="salidaTarima" Relationship="inventario.idrecibosalidatarima" FromRole="reciboSalida" ToRole="salidaTarima" />
+  </EntityType>
+  <EntityType Name="reciboSalidaOrigen">
+    <Key>
+      <PropertyRef Name="idrecibosalidaorigin" />
+      <PropertyRef Name="tipoelemento" />
+    </Key>
+    <Property Name="idrecibosalidaorigin" Type="Int32" Nullable="false" />
+    <Property Name="tipoelemento" Type="Int32" Nullable="false" />
+    <Property Name="idrecibosalida" Type="Int32" Nullable="false" />
+    <Property Name="calidad" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="cantidadsacos" Type="Int32" />
+    <Property Name="pesoneto" Type="Double" />
+    <NavigationProperty Name="reciboSalida" Relationship="inventario.idrecibosalida" FromRole="reciboSalidaOrigen" ToRole="reciboSalida" />
+  </EntityType>
+  <EntityType Name="recibosalidasacos">
+    <Key>
+      <PropertyRef Name="idreciboentradasacos" />
+      <PropertyRef Name="idrecibosalida" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="tipo" />
+      <PropertyRef Name="tara" />
+    </Key>
+    <Property Name="idreciboentradasacos" Type="Int32" Nullable="false" />
+    <Property Name="idrecibosalida" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="tara" Type="Double" Nullable="false" />
+    <NavigationProperty Name="reciboSalida" Relationship="inventario.idrecibosalidasacos" FromRole="recibosalidasacos" ToRole="reciboSalida" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="idrol" />
+    </Key>
+    <Property Name="idrol" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="usuario" Relationship="inventario.idrol" FromRole="rol" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="salidaTarima">
+    <Key>
+      <PropertyRef Name="idtarimaSalida" />
+    </Key>
+    <Property Name="idtarimaSalida" Type="Int32" Nullable="false" />
+    <Property Name="idrecibosalida" Type="Int32" Nullable="false" />
+    <Property Name="peso" Type="Double" Nullable="false" />
+    <NavigationProperty Name="reciboSalida" Relationship="inventario.idrecibosalidatarima" FromRole="salidaTarima" ToRole="reciboSalida" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" />
+    <Property Name="idrol" Type="Int32" Nullable="false" />
+    <Property Name="nombreusuario" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="contrasena" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="cliente" Relationship="inventario.idusuario" FromRole="usuario" ToRole="cliente" />
+    <NavigationProperty Name="rol" Relationship="inventario.idrol" FromRole="usuario" ToRole="rol" />
+  </EntityType>
+  <Association Name="idcliente">
+    <End Role="cliente" Type="inventario.cliente" Multiplicity="1" />
+    <End Role="inventario" Type="inventario.inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="idcliente" />
+      </Principal>
+      <Dependent Role="inventario">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idusuario">
+    <End Role="usuario" Type="inventario.usuario" Multiplicity="1" />
+    <End Role="cliente" Type="inventario.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idreciboentradatarima">
+    <End Role="reciboEntrada" Type="inventario.reciboEntrada" Multiplicity="1" />
+    <End Role="entradaTarima" Type="inventario.entradaTarima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reciboEntrada">
+        <PropertyRef Name="idreciboentrada" />
+      </Principal>
+      <Dependent Role="entradaTarima">
+        <PropertyRef Name="idreciboentrada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idinventarioentrada">
+    <End Role="inventario" Type="inventario.inventario" Multiplicity="1" />
+    <End Role="reciboEntrada" Type="inventario.reciboEntrada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inventario">
+        <PropertyRef Name="idinventario" />
+      </Principal>
+      <Dependent Role="reciboEntrada">
+        <PropertyRef Name="idinventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idinventarioorden">
+    <End Role="inventario" Type="inventario.inventario" Multiplicity="1" />
+    <End Role="ordenTrabajo" Type="inventario.ordenTrabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inventario">
+        <PropertyRef Name="idinventario" />
+      </Principal>
+      <Dependent Role="ordenTrabajo">
+        <PropertyRef Name="idinventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idinventariosalida">
+    <End Role="inventario" Type="inventario.inventario" Multiplicity="1" />
+    <End Role="reciboSalida" Type="inventario.reciboSalida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inventario">
+        <PropertyRef Name="idinventario" />
+      </Principal>
+      <Dependent Role="reciboSalida">
+        <PropertyRef Name="idinventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idordentrabajo">
+    <End Role="ordenTrabajo" Type="inventario.ordenTrabajo" Multiplicity="1" />
+    <End Role="ordenOrigen" Type="inventario.ordenOrigen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ordenTrabajo">
+        <PropertyRef Name="idordentrabajo" />
+      </Principal>
+      <Dependent Role="ordenOrigen">
+        <PropertyRef Name="idordentrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idordentrabajoresultado">
+    <End Role="ordenTrabajo" Type="inventario.ordenTrabajo" Multiplicity="1" />
+    <End Role="ordenResultado" Type="inventario.ordenResultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ordenTrabajo">
+        <PropertyRef Name="idordentrabajo" />
+      </Principal>
+      <Dependent Role="ordenResultado">
+        <PropertyRef Name="idordentrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idreciboentradasacos">
+    <End Role="reciboEntrada" Type="inventario.reciboEntrada" Multiplicity="1" />
+    <End Role="reciboentradasacos" Type="inventario.reciboentradasacos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reciboEntrada">
+        <PropertyRef Name="idreciboentrada" />
+      </Principal>
+      <Dependent Role="reciboentradasacos">
+        <PropertyRef Name="idreciboentrada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idrecibosalida">
+    <End Role="reciboSalida" Type="inventario.reciboSalida" Multiplicity="1" />
+    <End Role="reciboSalidaOrigen" Type="inventario.reciboSalidaOrigen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reciboSalida">
+        <PropertyRef Name="idrecibosalida" />
+      </Principal>
+      <Dependent Role="reciboSalidaOrigen">
+        <PropertyRef Name="idrecibosalidaorigin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idrecibosalidasacos">
+    <End Role="reciboSalida" Type="inventario.reciboSalida" Multiplicity="1" />
+    <End Role="recibosalidasacos" Type="inventario.recibosalidasacos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reciboSalida">
+        <PropertyRef Name="idrecibosalida" />
+      </Principal>
+      <Dependent Role="recibosalidasacos">
+        <PropertyRef Name="idrecibosalida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idrecibosalidatarima">
+    <End Role="reciboSalida" Type="inventario.reciboSalida" Multiplicity="1" />
+    <End Role="salidaTarima" Type="inventario.salidaTarima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reciboSalida">
+        <PropertyRef Name="idrecibosalida" />
+      </Principal>
+      <Dependent Role="salidaTarima">
+        <PropertyRef Name="idrecibosalida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idrol">
+    <End Role="rol" Type="inventario.rol" Multiplicity="1" />
+    <End Role="usuario" Type="inventario.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
