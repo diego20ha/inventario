@@ -21,6 +21,7 @@ namespace Inventario
         static double taraTotal = 0;
         static double pesoNeto = 0;
         static double pesoTarimasVacias = 0;
+        static Dictionary<string, double> tarimasList = new Dictionary<string, double>();
         MainInventario inventarioForm = new MainInventario();
 
         public AddRecibo()
@@ -32,29 +33,51 @@ namespace Inventario
         /*
           Private Custom Functions
         */
-        private void getTotalPesos(string tb)
+        private void getTotalPesos()
         {
-            totalTarimas += double.Parse(tb);
+            totalTarimas = 0;
+
+            foreach (var item in tarimasList)
+            {
+                totalTarimas += item.Value;
+            }
+
+            txtBoxPesoTotal.Text = totalTarimas.ToString();
+
             calculaPesoNeto();
+        }
+
+        private void updateTarimasList(string txbName, string value)
+        {
+            double finalVal = double.Parse(value, System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.NumberFormatInfo.InvariantInfo);
+            if (tarimasList.ContainsKey(txbName))
+            {
+                tarimasList[txbName] = finalVal;
+            }
+            else
+            {
+                tarimasList.Add(txbName, finalVal);
+            }
+
+            getTotalPesos();
         }
 
         private void tb_KeyDown(object sender, KeyEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            string value = "0";
+            Control ctxb = (Control)sender;
+            String txbName = ctxb.Name;
+            string value = "";            
             
             if (e.KeyCode == Keys.Enter)
             {
                 addNewTarima();
 
-                if (tb != null)
-                {
+                if (tb != null && !String.IsNullOrEmpty(tb.Text))
+                {                    
                     value = tb.Text;
-                    getTotalPesos(value);
-
-                }
-
-                txtBoxPesoTotal.Text = totalTarimas.ToString();
+                    updateTarimasList(txbName, value);                                        
+                }                
             }
         }
 
@@ -73,6 +96,12 @@ namespace Inventario
         {
             tb.KeyDown += new KeyEventHandler(tb_KeyDown);
             tb.KeyPress += new KeyPressEventHandler(tb_keyPress);
+        }
+
+        private void clearDynamicTarVars()
+        {
+            indexTar = 1;
+            rows = 1;
         }
 
         private void addNewTarima()
@@ -196,11 +225,13 @@ namespace Inventario
             if (!String.IsNullOrEmpty(txbCantSacos1.Text) &&
                 !String.IsNullOrEmpty(txbTaraSacos1.Text))
             {
+                taraTotal = 0;
                 taraTotal += (int.Parse(txbCantSacos1.Text) * Double.Parse(txbTaraSacos1.Text));
             }
             if (!String.IsNullOrEmpty(txbCantidadSacos2.Text) &&
                 !String.IsNullOrEmpty(txbTaraSacos2.Text))
             {
+                taraTotal = 0;
                 taraTotal += (int.Parse(txbCantidadSacos2.Text) * Double.Parse(txbTaraSacos2.Text));
             }
            
@@ -244,239 +275,19 @@ namespace Inventario
         }
 
         private void calculaPesoNeto()
-        {            
-            if(!String.IsNullOrEmpty(txtBoxPesoTarimas.Text))
+        {
+            if (!String.IsNullOrEmpty(txtBoxPesoTarimas.Text))
             {
                 pesoTarimasVacias = Double.Parse(txtBoxPesoTarimas.Text);
+            }
+            else
+            {
+                pesoTarimasVacias = 0;
             }
 
             pesoNeto = totalTarimas - taraTotal - pesoTarimasVacias;
 
             txtBoxPesoNeto.Text = pesoNeto.ToString();
-        }
-
-        /*
-          Form events
-        */
-        private void MenuCloseApp_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void MenuHomeBtn_Click(object sender, EventArgs e)
-        {
-            MainInventario inventario = new MainInventario();
-            inventario.Show();
-            this.Hide();
-        }
-
-        private void AddRecibo_Load(object sender, EventArgs e)
-        {
-            using (inventarioEnt inventario = new inventarioEnt())
-            {
-                var recibos = (from o in inventario.reciboEntrada
-                            select o.idreciboentrada).ToList();                
-
-                if (recibos.Count > 0)
-                {
-                    if (recibos.Count <= 9)
-                    {
-                        txtBoxNumRec.Text = (recibos.Count + 1).ToString().PadLeft(4, '0');
-                    }                                       
-                }
-                else
-                {
-                    txtBoxNumRec.Text = "0001";
-                }
-            }
-        }
-
-        private void cmbTipoSacos1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedValue = cmbTipoSacos1.Text;
-            double taraSaco = getTaraSelectedSaco(selectedValue);
-
-            txbTaraSacos1.Text = taraSaco.ToString();
-        }
-
-        private void cmbTipoSacos2_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            string selectedValue = cmbTipoSacos2.Text;
-            double taraSaco = getTaraSelectedSaco(selectedValue);
-
-            txbTaraSacos2.Text = taraSaco.ToString();
-        }
-
-        private void txtBoxTarima1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                addNewTarima();
-                getTotalPesos(txtBoxTarima1.Text);
-                txtBoxPesoTotal.Text = totalTarimas.ToString();
-            }
-        }
-
-        private void linkAddSacos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            linkAddSacos.Visible = false;
-            panelCantidadSacos2.Show();
-        }
-        
-        private void txbTaraSacos1_TextChanged(object sender, EventArgs e)
-        {
-            getTaraSacos();
-        }
-
-        private void txbTaraSacos2_TextChanged(object sender, EventArgs e)
-        {
-            getTaraSacos();
-        }        
-
-        private void txbCantSacos1_TextChanged(object sender, EventArgs e)
-        {
-            getTotalSacos();
-            getTaraSacos();
-        }
-
-        private void txbCantidadSacos2_TextChanged(object sender, EventArgs e)
-        {
-            getTotalSacos();
-            getTaraSacos();
-        }
-
-        private void txtBoxTarima1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) &&
-                ch != 8 &&
-                ch != 46)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtBoxPesoTarimas_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                calculaPesoNeto();
-            }
-
-        }
-
-        private void btnSaveRecibo_Click(object sender, EventArgs e)
-        {
-            parseRecibo();
-            parseTarimas();
-        }
-
-        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadInventarios();
-        }
-
-        private void btnCancelRecibo_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            inventarioForm.Show();
-        }
-
-        
-        /*
-          Database interaction fucntions
-        */
-
-        private void loadInventarios()
-        {
-            try
-            {
-                using (inventarioEnt inventario = new inventarioEnt())
-                {
-                    inventario.Configuration.AutoDetectChangesEnabled = false;
-
-                    var inventarios = (from inv in inventario.inventario
-                                       select inv).ToList();
-
-                    if (inventarios.Count > 0)
-                    {
-                        cmbInventario.ValueMember = "idinventario";
-                        cmbInventario.DisplayMember = "nombreinventario";
-                        cmbInventario.DataSource = inventarios;
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error loading inventarios: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private int getTarimasId()
-        {
-            try
-            {
-                int tarimasID = 1;
-
-                using (inventarioEnt inventario = new inventarioEnt())
-                {
-                    inventario.Configuration.AutoDetectChangesEnabled = false;
-
-                    var tarimas = (from tarima in inventario.entradaTarima
-                                       select tarima).ToList();
-
-                    if (tarimas.Count > 0)
-                    {
-                        tarimasID = tarimas.Count;
-                    }                 
-
-                }
-                return tarimasID;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error loading inventarios: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 1;
-            }
-        }
-
-        private void insertRecibo(reciboEntrada recibo)
-        {
-            try
-            {
-                using (inventarioEnt inventario = new inventarioEnt())
-                {
-                    inventario.Configuration.AutoDetectChangesEnabled = false;
-
-                    if (recibo != null)
-                    {
-                        inventario.reciboEntrada.Add(recibo);
-                        inventario.SaveChanges();
-                        DialogResult addNew = MessageBox.Show("El recibo de entrada ha sido guardado correctamente. ¿Desea agregar otro recibo?", "Recibo Agregado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                        if (addNew == DialogResult.OK)
-                        {
-                            AddRecibo newReciboForm = new AddRecibo();
-                            this.Close();
-                            newReciboForm.Show();
-                        }
-                        else
-                        {
-                            this.Close();
-                            inventarioForm.Show();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Por favor ingrese datos en todos los espacios requeridos.", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error trying to insert Recibo de entrada: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void parseRecibo()
@@ -501,7 +312,7 @@ namespace Inventario
             else
             {
                 // if there is one or more required field on the form
-                insertRecibo(null);                
+                insertRecibo(null);
             }
 
             if (!String.IsNullOrEmpty(txtBoxTotalSacos.Text))
@@ -566,7 +377,7 @@ namespace Inventario
             {
                 recibo.pesotarimasvacias = null;
             }
-            
+
             if (!String.IsNullOrEmpty(txtBoxPesoTotal.Text))
             {
                 recibo.pesobruto = double.Parse(txtBoxPesoTotal.Text);
@@ -575,7 +386,7 @@ namespace Inventario
             {
                 recibo.pesobruto = null;
             }
-            
+
             if (!String.IsNullOrEmpty(txtBoxObservaciones.Text))
             {
                 recibo.observaciones = txtBoxObservaciones.Text;
@@ -590,21 +401,352 @@ namespace Inventario
 
         private void parseTarimas()
         {
-            int idTar = getTarimasId();
-            entradaTarima tarimas = new entradaTarima();
-
-            foreach (Control txt in panelPesoTarimas.Controls)
+            try
             {
-                if(txt is TextBox)
+                int idTar = getTarimasEntradaId();
+                entradaTarima tarimas = new entradaTarima();
+
+                foreach (var item in tarimasList)
                 {
-                    if(!String.IsNullOrEmpty((txt as TextBox).Text))
+                    tarimas.idtarimaentrada = idTar;
+                    tarimas.idreciboentrada = int.Parse(txtBoxNumRec.Text);
+                    tarimas.peso = item.Value;
+
+                    insertTarima(tarimas);
+                    idTar++;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error parsing tarimas entrada (entrada): " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void parseSacos()
+        {
+            try
+            {
+                int idSacos = getSacosEntradaId();
+                reciboentradasacos sacos = new reciboentradasacos();
+                if (!String.IsNullOrEmpty(txbCantSacos1.Text))
+                {
+                    sacos.idreciboentradasacos = idSacos;
+                    sacos.idreciboentrada = int.Parse(txtBoxNumRec.Text);
+                    sacos.cantidad = int.Parse(txbCantSacos1.Text);
+                    sacos.tipo = cmbTipoSacos1.Text;
+                    sacos.tara = double.Parse(txbTaraSacos1.Text);
+
+                    insertSaco(sacos);
+                }
+                if (!String.IsNullOrEmpty(txbCantidadSacos2.Text))
+                {
+                    reciboentradasacos sacos2 = new reciboentradasacos();
+                    idSacos++;
+                    sacos2.idreciboentradasacos = idSacos;
+                    sacos2.idreciboentrada = int.Parse(txtBoxNumRec.Text);
+                    sacos2.cantidad = int.Parse(txbCantSacos1.Text);
+                    sacos2.tipo = cmbTipoSacos1.Text;
+                    sacos2.tara = double.Parse(txbTaraSacos1.Text);
+
+                    insertSaco(sacos2);                    
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error parsing tarimas entrada (entrada): " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+        /*
+          Database interaction fucntions
+        */
+        private int getSacosEntradaId()
+        {
+            try
+            {
+                int id = 0;
+                using (inventarioEnt inventario = new inventarioEnt())
+                {
+                    inventario.Configuration.AutoDetectChangesEnabled = false;
+
+                    var sacosList = (from sacos in inventario.reciboentradasacos
+                                   select sacos).ToList();
+
+                    if (sacosList.Count > 0)
                     {
-                        tarimas.idtarimaentrada = idTar;
-                        tarimas.idreciboentrada = int.Parse(txtBoxNumRec.Text);
-                        tarimas.peso = double.Parse((txt as TextBox).Text);
+                        id = sacosList.Count + 1;
+                    }
+
+                    return id;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getting sacos id: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        private int getTarimasEntradaId()
+        {            
+            try
+            {
+                int id = 0;
+                using (inventarioEnt inventario = new inventarioEnt())
+                {
+                    inventario.Configuration.AutoDetectChangesEnabled = false;
+
+                    var tarimas = (from tar in inventario.entradaTarima
+                                       select tar).ToList();
+
+                    if (tarimas.Count > 0)
+                    {
+                        id = tarimas.Count + 1;
+                    }
+
+                    return id;  
+                }                
+            }            
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getting tarimas id: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        private void loadInventarios()
+        {
+            try
+            {
+                using (inventarioEnt inventario = new inventarioEnt())
+                {
+                    inventario.Configuration.AutoDetectChangesEnabled = false;
+
+                    var inventarios = (from inv in inventario.inventario
+                                       select inv).ToList();
+
+                    if (inventarios.Count > 0)
+                    {
+                        cmbInventario.ValueMember = "idinventario";
+                        cmbInventario.DisplayMember = "nombreinventario";
+                        cmbInventario.DataSource = inventarios;
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error loading inventarios: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }        
+
+        private void insertRecibo(reciboEntrada recibo)
+        {
+            try
+            {
+                using (inventarioEnt inventario = new inventarioEnt())
+                {
+                    inventario.Configuration.AutoDetectChangesEnabled = false;
+
+                    if (recibo != null)
+                    {
+                        inventario.reciboEntrada.Add(recibo);
+                        inventario.SaveChanges();
+                        parseTarimas();
+                        parseSacos();
+
+                        DialogResult addNew = MessageBox.Show("El recibo de entrada ha sido guardado correctamente. ¿Desea agregar otro recibo?", "Recibo Agregado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (addNew == DialogResult.OK)
+                        {
+                            AddRecibo newReciboForm = new AddRecibo();
+                            clearDynamicTarVars();
+                            this.Close();
+                            newReciboForm.Show();
+                        }
+                        else
+                        {
+                            this.Close();
+                            inventarioForm.Show();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor ingrese datos en todos los espacios requeridos.", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error trying to insert Recibo de entrada: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void insertTarima(entradaTarima tarima)
+        {
+            try
+            {
+                using (inventarioEnt inventario = new inventarioEnt())
+                {
+                    inventario.Configuration.AutoDetectChangesEnabled = false;
+
+                    if (tarima != null)
+                    {
+                        inventario.entradaTarima.Add(tarima);
+                        inventario.SaveChanges();
+                        //DialogResult addNew = MessageBox.Show("El recibo de entrada ha sido guardado correctamente. ¿Desea agregar otro recibo?", "Recibo Agregado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error trying to insert tarimas entrada (entrada): " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void insertSaco(reciboentradasacos saco)
+        {
+            try
+            {
+                using (inventarioEnt inventario = new inventarioEnt())
+                {
+                    inventario.Configuration.AutoDetectChangesEnabled = false;
+
+                    if (saco != null)
+                    {
+                        inventario.reciboentradasacos.Add(saco);
+                        inventario.SaveChanges();
+                        //DialogResult addNew = MessageBox.Show("El recibo de entrada ha sido guardado correctamente. ¿Desea agregar otro recibo?", "Recibo Agregado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error trying to insert tarimas entrada (entrada): " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /*
+          Form events
+        */
+        private void MenuCloseApp_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MenuHomeBtn_Click(object sender, EventArgs e)
+        {
+            MainInventario inventario = new MainInventario();
+            inventario.Show();
+            this.Hide();
+        }
+
+        private void AddRecibo_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'clienteDataSet.cliente' table. You can move, or remove it, as needed.
+            this.clienteTableAdapter.Fill(this.clienteDataSet.cliente);
+            using (inventarioEnt inventario = new inventarioEnt())
+            {
+                var recibos = (from o in inventario.reciboEntrada
+                               select o.idreciboentrada).ToList();
+
+                if (recibos.Count > 0)
+                {
+                    txtBoxNumRec.Text = (recibos.Count + 1).ToString().PadLeft(4, '0');
+                }
+                else
+                {
+                    txtBoxNumRec.Text = "0001";
+                }
+            }
+        }
+
+        private void cmbTipoSacos1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = cmbTipoSacos1.Text;
+            double taraSaco = getTaraSelectedSaco(selectedValue);
+
+            txbTaraSacos1.Text = taraSaco.ToString();
+        }
+
+        private void cmbTipoSacos2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string selectedValue = cmbTipoSacos2.Text;
+            double taraSaco = getTaraSelectedSaco(selectedValue);
+
+            txbTaraSacos2.Text = taraSaco.ToString();
+        }
+
+        private void txtBoxTarima0_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addNewTarima();
+                updateTarimasList(txtBoxTarima0.Name, txtBoxTarima0.Text);
+            }
+        }
+
+        private void linkAddSacos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkAddSacos.Visible = false;
+            panelCantidadSacos2.Show();
+        }
+
+        private void txbTaraSacos1_TextChanged(object sender, EventArgs e)
+        {
+            getTaraSacos();
+        }
+
+        private void txbTaraSacos2_TextChanged(object sender, EventArgs e)
+        {
+            getTaraSacos();
+        }
+
+        private void txbCantSacos1_TextChanged(object sender, EventArgs e)
+        {
+            getTotalSacos();
+            getTaraSacos();
+        }
+
+        private void txbCantidadSacos2_TextChanged(object sender, EventArgs e)
+        {
+            getTotalSacos();
+            getTaraSacos();
+        }
+
+        private void txtBoxTarima0_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) &&
+                ch != 8 &&
+                ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxPesoTarimas_TextChanged(object sender, EventArgs e)
+        {
+            calculaPesoNeto();
+        }
+
+        private void btnSaveRecibo_Click(object sender, EventArgs e)
+        {
+            parseRecibo();
+        }
+
+        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadInventarios();
+        }
+
+        private void btnCancelRecibo_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            inventarioForm.Show();
         }
     }
 }

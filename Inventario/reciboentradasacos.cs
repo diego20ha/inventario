@@ -16,7 +16,7 @@ namespace Inventario
     {
         public int idreciboentradasacos { get; set; }
         public int idreciboentrada { get; set; }
-        public string cantidad { get; set; }
+        public int cantidad { get; set; }
         public string tipo { get; set; }
         public double tara { get; set; }
     

@@ -76,6 +76,11 @@
     <Compile Include="cliente.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
+    <Compile Include="clienteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>clienteDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="entradaTarima.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
@@ -175,6 +180,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>inventario.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="clienteDataSet.xsc">
+      <DependentUpon>clienteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="clienteDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>clienteDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="clienteDataSet.xss">
+      <DependentUpon>clienteDataSet.xsd</DependentUpon>
+    </None>
     <None Include="inventario.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>inventario.edmx</DependentUpon>

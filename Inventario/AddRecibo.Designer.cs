@@ -74,7 +74,7 @@
             this.txbTaraSacos1 = new System.Windows.Forms.TextBox();
             this.lblPesosRomana = new System.Windows.Forms.Label();
             this.lblTotales = new System.Windows.Forms.Label();
-            this.txtBoxTarima1 = new System.Windows.Forms.TextBox();
+            this.txtBoxTarima0 = new System.Windows.Forms.TextBox();
             this.lblTarima1 = new System.Windows.Forms.Label();
             this.lblPesoTotal = new System.Windows.Forms.Label();
             this.txtBoxPesoTotal = new System.Windows.Forms.TextBox();
@@ -106,13 +106,18 @@
             this.txtBoxObservaciones = new System.Windows.Forms.TextBox();
             this.cmbInventario = new System.Windows.Forms.ComboBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
+            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteDataSet = new Inventario.clienteDataSet();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteTableAdapter = new Inventario.clienteDataSetTableAdapters.clienteTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.panelPesoTarimas.SuspendLayout();
             this.panelPesoTarimasColumn1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCantidadSacos2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -487,14 +492,14 @@
             this.lblTotales.TabIndex = 32;
             this.lblTotales.Text = "Totales";
             // 
-            // txtBoxTarima1
+            // txtBoxTarima0
             // 
-            this.txtBoxTarima1.Location = new System.Drawing.Point(22, 3);
-            this.txtBoxTarima1.Name = "txtBoxTarima1";
-            this.txtBoxTarima1.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxTarima1.TabIndex = 18;
-            this.txtBoxTarima1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxTarima1_KeyDown);
-            this.txtBoxTarima1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxTarima1_KeyPress);
+            this.txtBoxTarima0.Location = new System.Drawing.Point(22, 3);
+            this.txtBoxTarima0.Name = "txtBoxTarima0";
+            this.txtBoxTarima0.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxTarima0.TabIndex = 18;
+            this.txtBoxTarima0.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxTarima0_KeyDown);
+            this.txtBoxTarima0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxTarima0_KeyPress);
             // 
             // lblTarima1
             // 
@@ -527,7 +532,7 @@
             this.txtBoxPesoTarimas.Name = "txtBoxPesoTarimas";
             this.txtBoxPesoTarimas.Size = new System.Drawing.Size(124, 20);
             this.txtBoxPesoTarimas.TabIndex = 21;
-            this.txtBoxPesoTarimas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxPesoTarimas_KeyDown);
+            this.txtBoxPesoTarimas.TextChanged += new System.EventHandler(this.txtBoxPesoTarimas_TextChanged);           
             // 
             // label2
             // 
@@ -620,7 +625,7 @@
             // 
             // panelPesoTarimasColumn1
             // 
-            this.panelPesoTarimasColumn1.Controls.Add(this.txtBoxTarima1);
+            this.panelPesoTarimasColumn1.Controls.Add(this.txtBoxTarima0);
             this.panelPesoTarimasColumn1.Controls.Add(this.lblTarima1);
             this.panelPesoTarimasColumn1.Location = new System.Drawing.Point(0, 0);
             this.panelPesoTarimasColumn1.Name = "panelPesoTarimasColumn1";
@@ -774,7 +779,7 @@
             // 
             // cmbCliente
             // 
-            this.cmbCliente.DataSource = this.clienteBindingSource;
+            this.cmbCliente.DataSource = this.clienteBindingSource1;
             this.cmbCliente.DisplayMember = "nombrecliente";
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(110, 111);
@@ -784,6 +789,16 @@
             this.cmbCliente.ValueMember = "idcliente";
             this.cmbCliente.SelectedIndexChanged += new System.EventHandler(this.cmbCliente_SelectedIndexChanged);
             // 
+            // clienteBindingSource1
+            // 
+            this.clienteBindingSource1.DataMember = "cliente";
+            this.clienteBindingSource1.DataSource = this.clienteDataSet;
+            // 
+            // clienteDataSet
+            // 
+            this.clienteDataSet.DataSetName = "clienteDataSet";
+            this.clienteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // clienteBindingSource
             // 
             this.clienteBindingSource.DataMember = "cliente";
@@ -791,6 +806,10 @@
             // inventarioBindingSource
             // 
             this.inventarioBindingSource.DataMember = "inventario";
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
             // 
             // AddRecibo
             // 
@@ -840,6 +859,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddRecibo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Recibo Entrada";
             this.Load += new System.EventHandler(this.AddRecibo_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -851,6 +871,8 @@
             this.panel1.PerformLayout();
             this.panelCantidadSacos2.ResumeLayout(false);
             this.panelCantidadSacos2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -904,7 +926,7 @@
         private System.Windows.Forms.TextBox txbTaraSacos1;
         private System.Windows.Forms.Label lblPesosRomana;
         private System.Windows.Forms.Label lblTotales;
-        private System.Windows.Forms.TextBox txtBoxTarima1;
+        private System.Windows.Forms.TextBox txtBoxTarima0;
         private System.Windows.Forms.Label lblTarima1;
         private System.Windows.Forms.Label lblPesoTotal;
         private System.Windows.Forms.TextBox txtBoxPesoTotal;
@@ -938,5 +960,8 @@
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.BindingSource clienteBindingSource;
         private System.Windows.Forms.BindingSource inventarioBindingSource;
+        private clienteDataSet clienteDataSet;
+        private System.Windows.Forms.BindingSource clienteBindingSource1;
+        private clienteDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
     }
 }
