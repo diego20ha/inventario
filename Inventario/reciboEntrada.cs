@@ -17,7 +17,7 @@ namespace Inventario
         public reciboEntrada()
         {
             this.entradaTarima = new HashSet<entradaTarima>();
-            this.reciboentradasacos = new HashSet<reciboentradasacos>();
+            this.reciboEntradaSacos = new HashSet<reciboEntradaSacos>();
         }
     
         public int idreciboentrada { get; set; }
@@ -39,6 +39,6 @@ namespace Inventario
     
         public virtual ICollection<entradaTarima> entradaTarima { get; set; }
         public virtual inventario inventario { get; set; }
-        public virtual ICollection<reciboentradasacos> reciboentradasacos { get; set; }
+        public virtual ICollection<reciboEntradaSacos> reciboEntradaSacos { get; set; }
     }
 }

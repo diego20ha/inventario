@@ -13,10 +13,10 @@ namespace Inventario
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class inventarioEnt : DbContext
+    public partial class inventarioEntities : DbContext
     {
-        public inventarioEnt()
-            : base("name=inventarioEnt")
+        public inventarioEntities()
+            : base("name=inventarioEntities")
         {
         }
     
@@ -33,10 +33,10 @@ namespace Inventario
         public DbSet<ordenTrabajo> ordenTrabajo { get; set; }
         public DbSet<proceso> proceso { get; set; }
         public DbSet<reciboEntrada> reciboEntrada { get; set; }
-        public DbSet<reciboentradasacos> reciboentradasacos { get; set; }
+        public DbSet<reciboEntradaSacos> reciboEntradaSacos { get; set; }
         public DbSet<reciboSalida> reciboSalida { get; set; }
         public DbSet<reciboSalidaOrigen> reciboSalidaOrigen { get; set; }
-        public DbSet<recibosalidasacos> recibosalidasacos { get; set; }
+        public DbSet<reciboSalidaSacos> reciboSalidaSacos { get; set; }
         public DbSet<rol> rol { get; set; }
         public DbSet<salidaTarima> salidaTarima { get; set; }
         public DbSet<usuario> usuario { get; set; }

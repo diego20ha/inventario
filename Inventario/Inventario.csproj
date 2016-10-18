@@ -131,7 +131,7 @@
     <Compile Include="reciboEntrada.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
-    <Compile Include="reciboentradasacos.cs">
+    <Compile Include="reciboEntradaSacos.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
     <Compile Include="reciboSalida.cs">
@@ -140,7 +140,7 @@
     <Compile Include="reciboSalidaOrigen.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
-    <Compile Include="recibosalidasacos.cs">
+    <Compile Include="reciboSalidaSacos.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
     <Compile Include="rol.cs">
@@ -176,10 +176,6 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="inventario.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>inventario.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="clienteDataSet.xsc">
       <DependentUpon>clienteDataSet.xsd</DependentUpon>
     </None>
@@ -191,6 +187,10 @@
     <None Include="clienteDataSet.xss">
       <DependentUpon>clienteDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="inventario.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>inventario.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="inventario.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>inventario.edmx</DependentUpon>

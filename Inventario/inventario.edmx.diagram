@@ -4,35 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fb42e06bf7f5453daa606acfe661ceae" Name="Diagram1">
-        <EntityTypeShape EntityType="inventarioMod.cliente" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.entradaTarima" Width="1.5" PointX="12" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.inventario" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.ordenOrigen" Width="1.5" PointX="12" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.ordenResultado" Width="1.5" PointX="12" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.ordenTrabajo" Width="1.5" PointX="9.75" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.proceso" Width="2.625" PointX="0.5" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.reciboEntrada" Width="1.5" PointX="9.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.reciboentradasacos" Width="1.5" PointX="12" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.reciboSalida" Width="1.5" PointX="9.75" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.reciboSalidaOrigen" Width="1.5" PointX="12" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.recibosalidasacos" Width="1.5" PointX="12" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.rol" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.salidaTarima" Width="1.5" PointX="12" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventarioMod.usuario" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
-        <AssociationConnector Association="inventarioMod.idcliente" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idusuario" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idreciboentradatarima" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idinventarioentrada" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idinventarioorden" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idinventariosalida" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idordentrabajo" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idordentrabajoresultado" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idreciboentradasacos" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idrecibosalida" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idrecibosalidasacos" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idrecibosalidatarima" ManuallyRouted="false" />
-        <AssociationConnector Association="inventarioMod.idrol" ManuallyRouted="false" />
+      <Diagram DiagramId="98ac315846ba41089317a4b12651d153" Name="Diagram1">
+        <EntityTypeShape EntityType="inventarioModel.cliente" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.entradaTarima" Width="1.5" PointX="12" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.inventario" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.ordenOrigen" Width="1.5" PointX="12" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.ordenResultado" Width="1.5" PointX="12" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.ordenTrabajo" Width="1.5" PointX="9.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.proceso" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.reciboEntrada" Width="1.5" PointX="9.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.reciboEntradaSacos" Width="1.5" PointX="12" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.reciboSalida" Width="1.5" PointX="9.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.reciboSalidaOrigen" Width="1.5" PointX="12" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.reciboSalidaSacos" Width="1.5" PointX="12" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.rol" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.salidaTarima" Width="1.5" PointX="12" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.usuario" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="inventarioModel.idcliente" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idusuario" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idreciboentradatarima" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idinventarioentrada" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idinventarioorden" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idinventariosalida" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idordentrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idordentrabajoresultado" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idreciboentradasacos" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idrecibosalida" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idrecibosalidasacos" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idrecibosalidatarima" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.idrol" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

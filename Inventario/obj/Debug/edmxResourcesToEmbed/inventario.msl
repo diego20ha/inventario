@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="inventarioModStoreContainer" CdmEntityContainer="inventarioEnt">
+  <EntityContainerMapping StorageEntityContainer="inventarioModelStoreContainer" CdmEntityContainer="inventarioEntities">
     <EntitySetMapping Name="cliente">
-      <EntityTypeMapping TypeName="inventarioMod.cliente">
+      <EntityTypeMapping TypeName="inventarioModel.cliente">
         <MappingFragment StoreEntitySet="cliente">
           <ScalarProperty Name="idcliente" ColumnName="idcliente" />
           <ScalarProperty Name="idusuario" ColumnName="idusuario" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="entradaTarima">
-      <EntityTypeMapping TypeName="inventarioMod.entradaTarima">
+      <EntityTypeMapping TypeName="inventarioModel.entradaTarima">
         <MappingFragment StoreEntitySet="entradaTarima">
           <ScalarProperty Name="idtarimaentrada" ColumnName="idtarimaentrada" />
           <ScalarProperty Name="idreciboentrada" ColumnName="idreciboentrada" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="inventario">
-      <EntityTypeMapping TypeName="inventarioMod.inventario">
+      <EntityTypeMapping TypeName="inventarioModel.inventario">
         <MappingFragment StoreEntitySet="inventario">
           <ScalarProperty Name="idinventario" ColumnName="idinventario" />
           <ScalarProperty Name="idcliente" ColumnName="idcliente" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ordenOrigen">
-      <EntityTypeMapping TypeName="inventarioMod.ordenOrigen">
+      <EntityTypeMapping TypeName="inventarioModel.ordenOrigen">
         <MappingFragment StoreEntitySet="ordenOrigen">
           <ScalarProperty Name="idordenorigen" ColumnName="idordenorigen" />
           <ScalarProperty Name="tipoelemento" ColumnName="tipoelemento" />
@@ -41,7 +41,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ordenResultado">
-      <EntityTypeMapping TypeName="inventarioMod.ordenResultado">
+      <EntityTypeMapping TypeName="inventarioModel.ordenResultado">
         <MappingFragment StoreEntitySet="ordenResultado">
           <ScalarProperty Name="idordenresultados" ColumnName="idordenresultados" />
           <ScalarProperty Name="tipoelemento" ColumnName="tipoelemento" />
@@ -53,7 +53,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ordenTrabajo">
-      <EntityTypeMapping TypeName="inventarioMod.ordenTrabajo">
+      <EntityTypeMapping TypeName="inventarioModel.ordenTrabajo">
         <MappingFragment StoreEntitySet="ordenTrabajo">
           <ScalarProperty Name="idordentrabajo" ColumnName="idordentrabajo" />
           <ScalarProperty Name="idinventario" ColumnName="idinventario" />
@@ -66,14 +66,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="proceso">
-      <EntityTypeMapping TypeName="inventarioMod.proceso">
+      <EntityTypeMapping TypeName="inventarioModel.proceso">
         <MappingFragment StoreEntitySet="proceso">
           <ScalarProperty Name="idproceso" ColumnName="idproceso" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="reciboEntrada">
-      <EntityTypeMapping TypeName="inventarioMod.reciboEntrada">
+      <EntityTypeMapping TypeName="inventarioModel.reciboEntrada">
         <MappingFragment StoreEntitySet="reciboEntrada">
           <ScalarProperty Name="idreciboentrada" ColumnName="idreciboentrada" />
           <ScalarProperty Name="idinventario" ColumnName="idinventario" />
@@ -94,9 +94,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="reciboentradasacos">
-      <EntityTypeMapping TypeName="inventarioMod.reciboentradasacos">
-        <MappingFragment StoreEntitySet="reciboentradasacos">
+    <EntitySetMapping Name="reciboEntradaSacos">
+      <EntityTypeMapping TypeName="inventarioModel.reciboEntradaSacos">
+        <MappingFragment StoreEntitySet="reciboEntradaSacos">
           <ScalarProperty Name="idreciboentradasacos" ColumnName="idreciboentradasacos" />
           <ScalarProperty Name="idreciboentrada" ColumnName="idreciboentrada" />
           <ScalarProperty Name="cantidad" ColumnName="cantidad" />
@@ -106,7 +106,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="reciboSalida">
-      <EntityTypeMapping TypeName="inventarioMod.reciboSalida">
+      <EntityTypeMapping TypeName="inventarioModel.reciboSalida">
         <MappingFragment StoreEntitySet="reciboSalida">
           <ScalarProperty Name="idrecibosalida" ColumnName="idrecibosalida" />
           <ScalarProperty Name="idinventario" ColumnName="idinventario" />
@@ -129,7 +129,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="reciboSalidaOrigen">
-      <EntityTypeMapping TypeName="inventarioMod.reciboSalidaOrigen">
+      <EntityTypeMapping TypeName="inventarioModel.reciboSalidaOrigen">
         <MappingFragment StoreEntitySet="reciboSalidaOrigen">
           <ScalarProperty Name="idrecibosalidaorigin" ColumnName="idrecibosalidaorigin" />
           <ScalarProperty Name="tipoelemento" ColumnName="tipoelemento" />
@@ -140,10 +140,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="recibosalidasacos">
-      <EntityTypeMapping TypeName="inventarioMod.recibosalidasacos">
-        <MappingFragment StoreEntitySet="recibosalidasacos">
-          <ScalarProperty Name="idreciboentradasacos" ColumnName="idreciboentradasacos" />
+    <EntitySetMapping Name="reciboSalidaSacos">
+      <EntityTypeMapping TypeName="inventarioModel.reciboSalidaSacos">
+        <MappingFragment StoreEntitySet="reciboSalidaSacos">
+          <ScalarProperty Name="idrecibosalidasacos" ColumnName="idrecibosalidasacos" />
           <ScalarProperty Name="idrecibosalida" ColumnName="idrecibosalida" />
           <ScalarProperty Name="cantidad" ColumnName="cantidad" />
           <ScalarProperty Name="tipo" ColumnName="tipo" />
@@ -152,7 +152,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="rol">
-      <EntityTypeMapping TypeName="inventarioMod.rol">
+      <EntityTypeMapping TypeName="inventarioModel.rol">
         <MappingFragment StoreEntitySet="rol">
           <ScalarProperty Name="idrol" ColumnName="idrol" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -160,7 +160,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="salidaTarima">
-      <EntityTypeMapping TypeName="inventarioMod.salidaTarima">
+      <EntityTypeMapping TypeName="inventarioModel.salidaTarima">
         <MappingFragment StoreEntitySet="salidaTarima">
           <ScalarProperty Name="idtarimaSalida" ColumnName="idtarimaSalida" />
           <ScalarProperty Name="idrecibosalida" ColumnName="idrecibosalida" />
@@ -169,7 +169,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="usuario">
-      <EntityTypeMapping TypeName="inventarioMod.usuario">
+      <EntityTypeMapping TypeName="inventarioModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
           <ScalarProperty Name="idusuario" ColumnName="idusuario" />
           <ScalarProperty Name="idrol" ColumnName="idrol" />

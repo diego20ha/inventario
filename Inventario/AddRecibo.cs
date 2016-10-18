@@ -62,6 +62,19 @@ namespace Inventario
             getTotalPesos();
         }
 
+        private void tb_leave(object sender, EventArgs e) {
+            TextBox tb = sender as TextBox;
+            Control ctxb = (Control)sender;
+            String txbName = ctxb.Name;
+            string value = "";
+
+            if (tb != null && !String.IsNullOrEmpty(tb.Text))
+            {
+                value = tb.Text;
+                updateTarimasList(txbName, value);
+            } 
+        }
+
         private void tb_KeyDown(object sender, KeyEventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -96,6 +109,7 @@ namespace Inventario
         {
             tb.KeyDown += new KeyEventHandler(tb_KeyDown);
             tb.KeyPress += new KeyPressEventHandler(tb_keyPress);
+            tb.Leave += new EventHandler(tb_leave);
         }
 
         private void clearDynamicTarVars()
@@ -427,7 +441,7 @@ namespace Inventario
             try
             {
                 int idSacos = getSacosEntradaId();
-                reciboentradasacos sacos = new reciboentradasacos();
+                reciboEntradaSacos sacos = new reciboEntradaSacos();
                 if (!String.IsNullOrEmpty(txbCantSacos1.Text))
                 {
                     sacos.idreciboentradasacos = idSacos;
@@ -440,7 +454,7 @@ namespace Inventario
                 }
                 if (!String.IsNullOrEmpty(txbCantidadSacos2.Text))
                 {
-                    reciboentradasacos sacos2 = new reciboentradasacos();
+                    reciboEntradaSacos sacos2 = new reciboEntradaSacos();
                     idSacos++;
                     sacos2.idreciboentradasacos = idSacos;
                     sacos2.idreciboentrada = int.Parse(txtBoxNumRec.Text);
@@ -458,18 +472,18 @@ namespace Inventario
         }
         
         /*
-          Database interaction fucntions
+          Database interaction functions
         */
         private int getSacosEntradaId()
         {
             try
             {
-                int id = 0;
-                using (inventarioEnt inventario = new inventarioEnt())
+                int id = 1;
+                using (inventarioEntities inventario = new inventarioEntities())
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var sacosList = (from sacos in inventario.reciboentradasacos
+                    var sacosList = (from sacos in inventario.reciboEntradaSacos
                                    select sacos).ToList();
 
                     if (sacosList.Count > 0)
@@ -492,7 +506,7 @@ namespace Inventario
             try
             {
                 int id = 0;
-                using (inventarioEnt inventario = new inventarioEnt())
+                using (inventarioEntities inventario = new inventarioEntities())
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
@@ -518,7 +532,7 @@ namespace Inventario
         {
             try
             {
-                using (inventarioEnt inventario = new inventarioEnt())
+                using (inventarioEntities inventario = new inventarioEntities())
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
@@ -544,7 +558,7 @@ namespace Inventario
         {
             try
             {
-                using (inventarioEnt inventario = new inventarioEnt())
+                using (inventarioEntities inventario = new inventarioEntities())
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
@@ -586,7 +600,7 @@ namespace Inventario
         {
             try
             {
-                using (inventarioEnt inventario = new inventarioEnt())
+                using (inventarioEntities inventario = new inventarioEntities())
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
@@ -594,8 +608,6 @@ namespace Inventario
                     {
                         inventario.entradaTarima.Add(tarima);
                         inventario.SaveChanges();
-                        //DialogResult addNew = MessageBox.Show("El recibo de entrada ha sido guardado correctamente. ¿Desea agregar otro recibo?", "Recibo Agregado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
                     }
                 }
             }
@@ -605,20 +617,18 @@ namespace Inventario
             }
         }
 
-        private void insertSaco(reciboentradasacos saco)
+        private void insertSaco(reciboEntradaSacos saco)
         {
             try
             {
-                using (inventarioEnt inventario = new inventarioEnt())
+                using (inventarioEntities inventario = new inventarioEntities())
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
                     if (saco != null)
                     {
-                        inventario.reciboentradasacos.Add(saco);
+                        inventario.reciboEntradaSacos.Add(saco);
                         inventario.SaveChanges();
-                        //DialogResult addNew = MessageBox.Show("El recibo de entrada ha sido guardado correctamente. ¿Desea agregar otro recibo?", "Recibo Agregado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
                     }
                 }
             }
@@ -648,7 +658,7 @@ namespace Inventario
         {
             // TODO: This line of code loads data into the 'clienteDataSet.cliente' table. You can move, or remove it, as needed.
             this.clienteTableAdapter.Fill(this.clienteDataSet.cliente);
-            using (inventarioEnt inventario = new inventarioEnt())
+            using (inventarioEntities inventario = new inventarioEntities())
             {
                 var recibos = (from o in inventario.reciboEntrada
                                select o.idreciboentrada).ToList();
@@ -745,8 +755,14 @@ namespace Inventario
 
         private void btnCancelRecibo_Click(object sender, EventArgs e)
         {
+            clearDynamicTarVars();
             this.Close();
             inventarioForm.Show();
+        }
+
+        private void txtBoxTarima0_Leave(object sender, EventArgs e)
+        {
+            updateTarimasList(txtBoxTarima0.Name, txtBoxTarima0.Text);
         }
     }
 }

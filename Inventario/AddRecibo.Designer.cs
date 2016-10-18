@@ -500,6 +500,7 @@
             this.txtBoxTarima0.TabIndex = 18;
             this.txtBoxTarima0.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxTarima0_KeyDown);
             this.txtBoxTarima0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxTarima0_KeyPress);
+            this.txtBoxTarima0.Leave += new System.EventHandler(this.txtBoxTarima0_Leave);
             // 
             // lblTarima1
             // 
@@ -532,7 +533,7 @@
             this.txtBoxPesoTarimas.Name = "txtBoxPesoTarimas";
             this.txtBoxPesoTarimas.Size = new System.Drawing.Size(124, 20);
             this.txtBoxPesoTarimas.TabIndex = 21;
-            this.txtBoxPesoTarimas.TextChanged += new System.EventHandler(this.txtBoxPesoTarimas_TextChanged);           
+            this.txtBoxPesoTarimas.TextChanged += new System.EventHandler(this.txtBoxPesoTarimas_TextChanged);
             // 
             // label2
             // 

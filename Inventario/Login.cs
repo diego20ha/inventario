@@ -52,7 +52,7 @@ namespace Inventario
             }
             try
             {
-                using (inventarioEnt inventario = new inventarioEnt())
+                using (inventarioEntities inventario = new inventarioEntities())
                 {
                     var query = from o in inventario.usuario
                                 where o.nombreusuario == textBoxUser.Text && o.contrasena == textBoxPassword.Text

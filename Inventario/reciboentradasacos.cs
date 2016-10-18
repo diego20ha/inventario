@@ -12,7 +12,7 @@ namespace Inventario
     using System;
     using System.Collections.Generic;
     
-    public partial class reciboentradasacos
+    public partial class reciboEntradaSacos
     {
         public int idreciboentradasacos { get; set; }
         public int idreciboentrada { get; set; }

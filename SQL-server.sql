@@ -44,7 +44,6 @@ CREATE TABLE reciboEntrada (
   guia VARCHAR(45) NULL,
   placa VARCHAR(45) NULL,
   ubicacion INT NULL,
-  pesototaltarimas FLOAT NULL,
   pesotarimasvacias FLOAT NULL,
   pesobruto FLOAT NULL,
   pesoneto FLOAT NOT NULL,
@@ -66,7 +65,6 @@ CREATE TABLE reciboSalida (
   guia VARCHAR(45) NULL,
   placa VARCHAR(45) NULL,
   ubicacion VARCHAR(45) NULL,
-  pesototaltarimas FLOAT NULL,
   pesotarimasvacias FLOAT NULL,
   pesobruto FLOAT NULL,
   tarasacos FLOAT NULL,
@@ -143,17 +141,19 @@ CREATE TABLE reciboEntradaSacos (
   cantidad INT NOT NULL,
   tipo VARCHAR(45) NOT NULL,
   tara FLOAT NOT NULL,
+  PRIMARY KEY (idreciboentradasacos),
   CONSTRAINT idreciboentradasacos
     FOREIGN KEY (idreciboentrada)
     REFERENCES reciboEntrada (idreciboentrada))
 
 
 CREATE TABLE reciboSalidaSacos (
-  idreciboentradasacos INT NOT NULL,
+  idrecibosalidasacos INT NOT NULL,
   idrecibosalida INT NOT NULL,
   cantidad INT NOT NULL,
   tipo VARCHAR(45) NOT NULL,
   tara FLOAT NOT NULL,
+  PRIMARY KEY (idrecibosalidasacos),
   CONSTRAINT idrecibosalidasacos
     FOREIGN KEY (idrecibosalida)
     REFERENCES reciboSalida (idrecibosalida))
