@@ -28,5 +28,12 @@ namespace Inventario
             entrada.Show();
             this.Hide();
         }
+
+        private void MenuAddSalidaBtn_Click(object sender, EventArgs e)
+        {
+            AddSalida salida = new AddSalida();
+            salida.Show();
+            this.Hide();
+        }
     }
 }

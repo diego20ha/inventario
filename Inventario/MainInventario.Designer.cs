@@ -95,6 +95,7 @@
             this.MenuAddSalidaBtn.Name = "MenuAddSalidaBtn";
             this.MenuAddSalidaBtn.Size = new System.Drawing.Size(163, 22);
             this.MenuAddSalidaBtn.Text = "Salida";
+            this.MenuAddSalidaBtn.Click += new System.EventHandler(this.MenuAddSalidaBtn_Click);
             // 
             // MenuAddOTBtn
             // 
