@@ -660,12 +660,15 @@ namespace Inventario
             this.clienteTableAdapter.Fill(this.clienteDataSet.cliente);
             using (inventarioEntities inventario = new inventarioEntities())
             {
-                var recibos = (from o in inventario.reciboEntrada
-                               select o.idreciboentrada).ToList();
+                inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                if (recibos.Count > 0)
+                var recibos = (from recibo in inventario.reciboEntrada
+                                 select recibo.idreciboentrada).ToList();
+                int recibosCount = recibos.Count;
+
+                if (recibosCount > 0)
                 {
-                    txtBoxNumRec.Text = (recibos.Count + 1).ToString().PadLeft(4, '0');
+                    txtBoxNumRec.Text = (recibos[recibosCount-1] + 1).ToString().PadLeft(4, '0');
                 }
                 else
                 {

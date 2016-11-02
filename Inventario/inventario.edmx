@@ -395,6 +395,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="getLastReciboEntradaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getLastReciboSalidaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
@@ -468,6 +470,8 @@
             <End Role="rol" EntitySet="rol" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
+          <FunctionImport Name="getLastReciboEntradaID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="getLastReciboSalidaID" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <EntityType Name="cliente">
           <Key>
@@ -999,6 +1003,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getLastReciboEntradaID" FunctionName="inventarioModel.Store.getLastReciboEntradaID" />
+          <FunctionImportMapping FunctionImportName="getLastReciboSalidaID" FunctionName="inventarioModel.Store.getLastReciboSalidaID" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

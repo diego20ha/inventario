@@ -390,4 +390,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="getLastReciboEntradaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getLastReciboSalidaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
 </Schema>

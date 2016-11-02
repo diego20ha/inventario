@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSalida));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MenuHomeBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +48,9 @@
             this.MenuDeleteOTBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCloseApp = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteDataSet = new Inventario.clienteDataSet();
             this.cmbInventario = new System.Windows.Forms.ComboBox();
             this.txtBoxObservaciones = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
@@ -107,7 +111,11 @@
             this.lblTotales = new System.Windows.Forms.Label();
             this.lblSaleDe = new System.Windows.Forms.Label();
             this.cmbSaleDe = new System.Windows.Forms.ComboBox();
+            this.clienteTableAdapter = new Inventario.clienteDataSetTableAdapters.clienteTableAdapter();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelCantidadSacos2.SuspendLayout();
             this.panelPesoTarimas.SuspendLayout();
@@ -242,6 +250,7 @@
             // 
             // cmbCliente
             // 
+            this.cmbCliente.DataSource = this.clienteBindingSource;
             this.cmbCliente.DisplayMember = "nombrecliente";
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(110, 108);
@@ -249,6 +258,22 @@
             this.cmbCliente.Size = new System.Drawing.Size(165, 21);
             this.cmbCliente.TabIndex = 205;
             this.cmbCliente.ValueMember = "idcliente";
+            this.cmbCliente.SelectedIndexChanged += new System.EventHandler(this.cmbCliente_SelectedIndexChanged);
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "cliente";
+            this.clienteBindingSource.DataSource = this.clienteDataSetBindingSource;
+            // 
+            // clienteDataSetBindingSource
+            // 
+            this.clienteDataSetBindingSource.DataSource = this.clienteDataSet;
+            this.clienteDataSetBindingSource.Position = 0;
+            // 
+            // clienteDataSet
+            // 
+            this.clienteDataSet.DataSetName = "clienteDataSet";
+            this.clienteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cmbInventario
             // 
@@ -782,6 +807,10 @@
             this.cmbSaleDe.Size = new System.Drawing.Size(165, 21);
             this.cmbSaleDe.TabIndex = 244;
             // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
             // AddSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -833,8 +862,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSalida";
             this.Text = "Agregar Salida";
+            this.Load += new System.EventHandler(this.AddSalida_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelCantidadSacos2.ResumeLayout(false);
@@ -927,5 +960,9 @@
         private System.Windows.Forms.Label lblTotales;
         private System.Windows.Forms.Label lblSaleDe;
         private System.Windows.Forms.ComboBox cmbSaleDe;
+        private System.Windows.Forms.BindingSource clienteDataSetBindingSource;
+        private clienteDataSet clienteDataSet;
+        private System.Windows.Forms.BindingSource clienteBindingSource;
+        private clienteDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
     }
 }

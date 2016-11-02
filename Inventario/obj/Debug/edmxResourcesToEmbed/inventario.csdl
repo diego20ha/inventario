@@ -68,6 +68,8 @@
       <End Role="rol" EntitySet="rol" />
       <End Role="usuario" EntitySet="usuario" />
     </AssociationSet>
+    <FunctionImport Name="getLastReciboEntradaID" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="getLastReciboSalidaID" ReturnType="Collection(Int32)" />
   </EntityContainer>
   <EntityType Name="cliente">
     <Key>

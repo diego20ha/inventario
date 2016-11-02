@@ -12,6 +12,9 @@ namespace Inventario
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class inventarioEntities : DbContext
     {
@@ -40,5 +43,15 @@ namespace Inventario
         public DbSet<rol> rol { get; set; }
         public DbSet<salidaTarima> salidaTarima { get; set; }
         public DbSet<usuario> usuario { get; set; }
+
+        public virtual ObjectResult<Nullable<int>> getLastReciboEntradaID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("getLastReciboEntradaID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> getLastReciboSalidaID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("getLastReciboSalidaID");
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace Inventario
         public string ubicacion { get; set; }
         public Nullable<double> pesototaltarimas { get; set; }
         public Nullable<double> pesotarimasvacias { get; set; }
+        public Nullable<double> pesototalsacos { get; set; }
         public Nullable<double> pesobruto { get; set; }
         public Nullable<double> tarasacos { get; set; }
         public Nullable<double> pesoneto { get; set; }

@@ -1,3 +1,10 @@
+C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.AddRecibo.resources
+C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.AddSalida.resources
+C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.AddUser.resources
+C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.MainInventario.resources
+C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.Login.resources
+C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.Properties.Resources.resources
+C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.csproj.GenerateResource.Cache
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\Debug\Inventario.exe.config
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\Debug\Inventario.exe
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\Debug\Inventario.pdb
@@ -9,12 +16,5 @@ C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\D
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\Debug\EntityFramework.BulkInsert.pdb
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\Debug\EntityFramework.MappingAPI.pdb
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.AddRecibo.resources
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.AddUser.resources
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.MainInventario.resources
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.Login.resources
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.Properties.Resources.resources
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.csproj.GenerateResource.Cache
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.exe
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.pdb
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.csprojResolveAssemblyReference.cache

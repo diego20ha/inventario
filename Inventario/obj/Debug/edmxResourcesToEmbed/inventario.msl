@@ -178,5 +178,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getLastReciboEntradaID" FunctionName="inventarioModel.Store.getLastReciboEntradaID" />
+    <FunctionImportMapping FunctionImportName="getLastReciboSalidaID" FunctionName="inventarioModel.Store.getLastReciboSalidaID" />
   </EntityContainerMapping>
 </Mapping>
