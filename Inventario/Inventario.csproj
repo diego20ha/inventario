@@ -152,6 +152,12 @@
     <Compile Include="rol.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
+    <Compile Include="SaleDeAgregaRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleDeAgregaRecibo.Designer.cs">
+      <DependentUpon>SaleDeAgregaRecibo.cs</DependentUpon>
+    </Compile>
     <Compile Include="salidaTarima.cs">
       <DependentUpon>inventario.tt</DependentUpon>
     </Compile>
@@ -182,6 +188,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SaleDeAgregaRecibo.resx">
+      <DependentUpon>SaleDeAgregaRecibo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>

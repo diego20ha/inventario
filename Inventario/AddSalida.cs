@@ -24,6 +24,7 @@ namespace Inventario
         static double pesoTarimasVacias = 0;
         static Dictionary<string, double> tarimasList = new Dictionary<string, double>();
         MainInventario inventarioForm = new MainInventario();
+        formSaleDeSalida saleDeForm = new formSaleDeSalida();
 
         public AddSalida()
         {
@@ -502,6 +503,18 @@ namespace Inventario
             }
         }
 
+        private void loadSaleDe()
+        {
+            try
+            {
+                
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error loading inventarios: " + e, "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private int getSacosSalidaId()
         {
             try
@@ -670,6 +683,13 @@ namespace Inventario
         private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadInventarios();
+        }
+
+        private void cmbInventario_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int inventarioID = (int) cmbInventario.SelectedValue;
+            saleDeForm.loadOrigines(inventarioID);
+            saleDeForm.Show();
         }
     }
 }

@@ -282,6 +282,7 @@
             this.cmbInventario.Name = "cmbInventario";
             this.cmbInventario.Size = new System.Drawing.Size(184, 21);
             this.cmbInventario.TabIndex = 206;
+            this.cmbInventario.SelectionChangeCommitted += new System.EventHandler(this.cmbInventario_SelectionChangeCommitted);            
             // 
             // txtBoxObservaciones
             // 
