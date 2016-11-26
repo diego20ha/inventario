@@ -12,6 +12,8 @@ namespace Inventario
 {
     public partial class formSaleDeSalida : Form
     {
+        int elementId = 0;
+
         public formSaleDeSalida()
         {
             InitializeComponent();
@@ -27,12 +29,10 @@ namespace Inventario
 
                     var entradas = (from entradasOpt in inventario.reciboEntrada
                                     where entradasOpt.idinventario == invID
-                                    select new { entradasOpt.idreciboentrada, entradasOpt.cliente, entradasOpt.calidad, entradasOpt.cantidadsacos, entradasOpt.pesoneto, entradasOpt.fecha }).ToList();
+                                    select new { NUMERO = entradasOpt.idreciboentrada, CLIENTE = entradasOpt.cliente, CALIDAD = entradasOpt.calidad, SACOS = entradasOpt.cantidadsacos, PESO = entradasOpt.pesoneto, FECHA = entradasOpt.fecha }).ToList();
 
                     if (entradas.Count > 0)
                     {
-                        cmbTipo.Items.Add("Entrada");
-
                         dgvOrigenes.DataSource = entradas;
                     }
 
@@ -64,7 +64,25 @@ namespace Inventario
         private void dgvOrigenes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            var elementId = dgvOrigenes.Rows[rowIndex].Cells["idreciboentrada"].Value;
+            elementId = Convert.ToInt32(dgvOrigenes.Rows[rowIndex].Cells["idreciboentrada"].Value);
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (elementId != 0)
+            {
+                lblAyuda.Visible = false;
+
+            }
+            else
+            {
+                lblAyuda.Visible = true;
+            }
         }
     }
 }

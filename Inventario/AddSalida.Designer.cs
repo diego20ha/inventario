@@ -247,6 +247,7 @@
             this.MenuCloseApp.Name = "MenuCloseApp";
             this.MenuCloseApp.Size = new System.Drawing.Size(51, 20);
             this.MenuCloseApp.Text = "Cerrar";
+            this.MenuCloseApp.Click += new System.EventHandler(this.MenuCloseApp_Click);
             // 
             // cmbCliente
             // 
@@ -282,7 +283,7 @@
             this.cmbInventario.Name = "cmbInventario";
             this.cmbInventario.Size = new System.Drawing.Size(184, 21);
             this.cmbInventario.TabIndex = 206;
-            this.cmbInventario.SelectionChangeCommitted += new System.EventHandler(this.cmbInventario_SelectionChangeCommitted);            
+            this.cmbInventario.SelectionChangeCommitted += new System.EventHandler(this.cmbInventario_SelectionChangeCommitted);
             // 
             // txtBoxObservaciones
             // 

@@ -691,5 +691,10 @@ namespace Inventario
             saleDeForm.loadOrigines(inventarioID);
             saleDeForm.Show();
         }
+
+        private void MenuCloseApp_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

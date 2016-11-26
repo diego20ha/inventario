@@ -19,4 +19,3 @@ C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\D
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.exe
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.pdb
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.formSaleDeSalida.resources
-C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.csprojResolveAssemblyReference.cache
