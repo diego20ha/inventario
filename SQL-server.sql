@@ -18,8 +18,7 @@ CREATE TABLE usuario (
 CREATE TABLE cliente (
   idcliente INT NOT NULL,
   nombrecliente VARCHAR(45) NOT NULL,
-  PRIMARY KEY (idcliente),
-  INDEX idusuario_idx (idusuario ASC),
+  PRIMARY KEY (idcliente))
 
 
 CREATE TABLE inventario (

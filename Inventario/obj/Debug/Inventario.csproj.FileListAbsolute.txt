@@ -19,3 +19,6 @@ C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\bin\D
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.exe
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.pdb
 C:\Users\Diego\Documents\Visual Studio 2012\Projects\Inventario\Inventario\obj\Debug\Inventario.formSaleDeSalida.resources
+C:\Users\Prodigious\Documents\Visual Studio 2012\Projects\inventario\Inventario\bin\Debug\Inventario.exe.config
+C:\Users\Prodigious\Documents\Visual Studio 2012\Projects\inventario\Inventario\obj\Debug\Inventario.exe
+C:\Users\Prodigious\Documents\Visual Studio 2012\Projects\inventario\Inventario\obj\Debug\Inventario.pdb
