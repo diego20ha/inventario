@@ -16,8 +16,8 @@ namespace Inventario
     {
         public ordenTrabajo()
         {
-            this.ordenOrigen = new HashSet<ordenOrigen>();
-            this.ordenResultado = new HashSet<ordenResultado>();
+            this.ordenOrigens = new HashSet<ordenOrigen>();
+            this.ordenResultadoes = new HashSet<ordenResultado>();
         }
     
         public int idordentrabajo { get; set; }
@@ -29,7 +29,7 @@ namespace Inventario
         public string observaciones { get; set; }
     
         public virtual inventario inventario { get; set; }
-        public virtual ICollection<ordenOrigen> ordenOrigen { get; set; }
-        public virtual ICollection<ordenResultado> ordenResultado { get; set; }
+        public virtual ICollection<ordenOrigen> ordenOrigens { get; set; }
+        public virtual ICollection<ordenResultado> ordenResultadoes { get; set; }
     }
 }

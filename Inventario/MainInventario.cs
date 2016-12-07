@@ -35,5 +35,24 @@ namespace Inventario
             salida.Show();
             this.Hide();
         }
+
+        private void MainInventario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuAddRolBtn_Click(object sender, EventArgs e)
+        {
+            formAddRole role = new formAddRole();
+            role.Show();
+            this.Hide();
+        }
+
+        private void MenuAddUserBtn_Click(object sender, EventArgs e)
+        {
+            AddUser usuario = new AddUser();
+            usuario.Show();
+            this.Hide();
+        }
     }
 }

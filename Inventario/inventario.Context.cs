@@ -32,7 +32,7 @@ namespace Inventario
         public DbSet<entradaTarima> entradaTarima { get; set; }
         public DbSet<inventario> inventario { get; set; }
         public DbSet<ordenOrigen> ordenOrigen { get; set; }
-        public DbSet<ordenResultado> ordenResultado { get; set; }
+        public DbSet<ordenResultado> ordenResulta { get; set; }
         public DbSet<ordenTrabajo> ordenTrabajo { get; set; }
         public DbSet<proceso> proceso { get; set; }
         public DbSet<reciboEntrada> reciboEntrada { get; set; }
@@ -40,10 +40,10 @@ namespace Inventario
         public DbSet<reciboSalida> reciboSalida { get; set; }
         public DbSet<reciboSalidaOrigen> reciboSalidaOrigen { get; set; }
         public DbSet<reciboSalidaSacos> reciboSalidaSacos { get; set; }
-        public DbSet<rol> rol { get; set; }
+        public DbSet<rol> rols { get; set; }
         public DbSet<salidaTarima> salidaTarima { get; set; }
         public DbSet<usuario> usuario { get; set; }
-
+    
         public virtual ObjectResult<Nullable<int>> getLastReciboEntradaID()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("getLastReciboEntradaID");

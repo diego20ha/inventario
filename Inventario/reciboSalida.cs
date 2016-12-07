@@ -33,12 +33,12 @@ namespace Inventario
         public string ubicacion { get; set; }
         public Nullable<double> pesototaltarimas { get; set; }
         public Nullable<double> pesotarimasvacias { get; set; }
-        public Nullable<double> pesototalsacos { get; set; }
         public Nullable<double> pesobruto { get; set; }
         public Nullable<double> tarasacos { get; set; }
         public Nullable<double> pesoneto { get; set; }
         public string tiposaco { get; set; }
         public string observaciones { get; set; }
+        public Nullable<double> pesototalsacos { get; set; }
     
         public virtual inventario inventario { get; set; }
         public virtual ICollection<reciboSalidaOrigen> reciboSalidaOrigen { get; set; }

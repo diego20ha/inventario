@@ -109,6 +109,7 @@
             this.MenuAddRolBtn.Size = new System.Drawing.Size(163, 22);
             this.MenuAddRolBtn.Text = "Rol";
             this.MenuAddRolBtn.Visible = false;
+            this.MenuAddRolBtn.Click += new System.EventHandler(this.MenuAddRolBtn_Click);
             // 
             // MenuAddUserBtn
             // 
@@ -116,6 +117,7 @@
             this.MenuAddUserBtn.Size = new System.Drawing.Size(163, 22);
             this.MenuAddUserBtn.Text = "Usuario";
             this.MenuAddUserBtn.Visible = false;
+            this.MenuAddUserBtn.Click += new System.EventHandler(this.MenuAddUserBtn_Click);
             // 
             // MenuUpdateBtn
             // 
@@ -203,6 +205,7 @@
             this.Name = "MainInventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Inventario";
+            this.Load += new System.EventHandler(this.MainInventario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainFromImage)).EndInit();

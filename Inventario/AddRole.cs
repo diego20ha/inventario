@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Inventario
 {
-    public partial class AddUser : Form
+    public partial class formAddRole : Form
     {
-        public AddUser()
+        public formAddRole()
         {
             InitializeComponent();
-        }
-
-        private void AddUser_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

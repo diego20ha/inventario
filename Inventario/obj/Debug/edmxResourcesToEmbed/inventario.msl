@@ -28,7 +28,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ordenOrigen">
+    <EntitySetMapping Name="ordenOrigens">
       <EntityTypeMapping TypeName="inventarioModel.ordenOrigen">
         <MappingFragment StoreEntitySet="ordenOrigen">
           <ScalarProperty Name="idordenorigen" ColumnName="idordenorigen" />
@@ -40,7 +40,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ordenResultado">
+    <EntitySetMapping Name="ordenResultadoes">
       <EntityTypeMapping TypeName="inventarioModel.ordenResultado">
         <MappingFragment StoreEntitySet="ordenResultado">
           <ScalarProperty Name="idordenresultados" ColumnName="idordenresultados" />
@@ -65,7 +65,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="proceso">
+    <EntitySetMapping Name="procesoes">
       <EntityTypeMapping TypeName="inventarioModel.proceso">
         <MappingFragment StoreEntitySet="proceso">
           <ScalarProperty Name="idproceso" ColumnName="idproceso" />
@@ -125,6 +125,7 @@
           <ScalarProperty Name="pesoneto" ColumnName="pesoneto" />
           <ScalarProperty Name="tiposaco" ColumnName="tiposaco" />
           <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="pesototalsacos" ColumnName="pesototalsacos" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -151,7 +152,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="rol">
+    <EntitySetMapping Name="rols">
       <EntityTypeMapping TypeName="inventarioModel.rol">
         <MappingFragment StoreEntitySet="rol">
           <ScalarProperty Name="idrol" ColumnName="idrol" />

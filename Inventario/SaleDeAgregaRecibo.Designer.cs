@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSaleDeSalida));
             this.lblSalidaCafeOrigen = new System.Windows.Forms.Label();
             this.lblAyuda = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
@@ -98,6 +99,7 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblAyuda);
             this.Controls.Add(this.lblSalidaCafeOrigen);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formSaleDeSalida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sale De";

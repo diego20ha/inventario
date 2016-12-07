@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRole.Designer.cs">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </Compile>
     <EmbeddedResource Include="AddRecibo.resx">
       <DependentUpon>AddRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRole.resx">
+      <DependentUpon>AddRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddSalida.resx">
       <DependentUpon>AddSalida.cs</DependentUpon>

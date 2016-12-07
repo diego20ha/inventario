@@ -192,6 +192,7 @@
           <Property Name="pesoneto" Type="float" />
           <Property Name="tiposaco" Type="varchar" MaxLength="45" />
           <Property Name="observaciones" Type="varchar" MaxLength="45" />
+          <Property Name="pesototalsacos" Type="float" />
         </EntityType>
         <EntityType Name="reciboSalidaOrigen">
           <Key>
@@ -406,16 +407,16 @@
           <EntitySet Name="cliente" EntityType="inventarioModel.cliente" />
           <EntitySet Name="entradaTarima" EntityType="inventarioModel.entradaTarima" />
           <EntitySet Name="inventario" EntityType="inventarioModel.inventario" />
-          <EntitySet Name="ordenOrigen" EntityType="inventarioModel.ordenOrigen" />
-          <EntitySet Name="ordenResultado" EntityType="inventarioModel.ordenResultado" />
+          <EntitySet Name="ordenOrigens" EntityType="inventarioModel.ordenOrigen" />
+          <EntitySet Name="ordenResultadoes" EntityType="inventarioModel.ordenResultado" />
           <EntitySet Name="ordenTrabajo" EntityType="inventarioModel.ordenTrabajo" />
-          <EntitySet Name="proceso" EntityType="inventarioModel.proceso" />
+          <EntitySet Name="procesoes" EntityType="inventarioModel.proceso" />
           <EntitySet Name="reciboEntrada" EntityType="inventarioModel.reciboEntrada" />
           <EntitySet Name="reciboEntradaSacos" EntityType="inventarioModel.reciboEntradaSacos" />
           <EntitySet Name="reciboSalida" EntityType="inventarioModel.reciboSalida" />
           <EntitySet Name="reciboSalidaOrigen" EntityType="inventarioModel.reciboSalidaOrigen" />
           <EntitySet Name="reciboSalidaSacos" EntityType="inventarioModel.reciboSalidaSacos" />
-          <EntitySet Name="rol" EntityType="inventarioModel.rol" />
+          <EntitySet Name="rols" EntityType="inventarioModel.rol" />
           <EntitySet Name="salidaTarima" EntityType="inventarioModel.salidaTarima" />
           <EntitySet Name="usuario" EntityType="inventarioModel.usuario" />
           <AssociationSet Name="idcliente" Association="inventarioModel.idcliente">
@@ -444,11 +445,11 @@
           </AssociationSet>
           <AssociationSet Name="idordentrabajo" Association="inventarioModel.idordentrabajo">
             <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
-            <End Role="ordenOrigen" EntitySet="ordenOrigen" />
+            <End Role="ordenOrigen" EntitySet="ordenOrigens" />
           </AssociationSet>
           <AssociationSet Name="idordentrabajoresultado" Association="inventarioModel.idordentrabajoresultado">
             <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
-            <End Role="ordenResultado" EntitySet="ordenResultado" />
+            <End Role="ordenResultado" EntitySet="ordenResultadoes" />
           </AssociationSet>
           <AssociationSet Name="idreciboentradasacos" Association="inventarioModel.idreciboentradasacos">
             <End Role="reciboEntrada" EntitySet="reciboEntrada" />
@@ -467,7 +468,7 @@
             <End Role="salidaTarima" EntitySet="salidaTarima" />
           </AssociationSet>
           <AssociationSet Name="idrol" Association="inventarioModel.idrol">
-            <End Role="rol" EntitySet="rol" />
+            <End Role="rol" EntitySet="rols" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
           <FunctionImport Name="getLastReciboEntradaID" ReturnType="Collection(Int32)" />
@@ -542,8 +543,8 @@
           <Property Name="pesototal" Type="Double" />
           <Property Name="observaciones" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="inventario" Relationship="inventarioModel.idinventarioorden" FromRole="ordenTrabajo" ToRole="inventario" />
-          <NavigationProperty Name="ordenOrigen" Relationship="inventarioModel.idordentrabajo" FromRole="ordenTrabajo" ToRole="ordenOrigen" />
-          <NavigationProperty Name="ordenResultado" Relationship="inventarioModel.idordentrabajoresultado" FromRole="ordenTrabajo" ToRole="ordenResultado" />
+          <NavigationProperty Name="ordenOrigens" Relationship="inventarioModel.idordentrabajo" FromRole="ordenTrabajo" ToRole="ordenOrigen" />
+          <NavigationProperty Name="ordenResultadoes" Relationship="inventarioModel.idordentrabajoresultado" FromRole="ordenTrabajo" ToRole="ordenResultado" />
         </EntityType>
         <EntityType Name="proceso">
           <Key>
@@ -607,6 +608,7 @@
           <Property Name="pesoneto" Type="Double" />
           <Property Name="tiposaco" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="observaciones" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="pesototalsacos" Type="Double" />
           <NavigationProperty Name="inventario" Relationship="inventarioModel.idinventariosalida" FromRole="reciboSalida" ToRole="inventario" />
           <NavigationProperty Name="reciboSalidaOrigen" Relationship="inventarioModel.idrecibosalida" FromRole="reciboSalida" ToRole="reciboSalidaOrigen" />
           <NavigationProperty Name="reciboSalidaSacos" Relationship="inventarioModel.idrecibosalidasacos" FromRole="reciboSalida" ToRole="reciboSalidaSacos" />
@@ -853,7 +855,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ordenOrigen">
+          <EntitySetMapping Name="ordenOrigens">
             <EntityTypeMapping TypeName="inventarioModel.ordenOrigen">
               <MappingFragment StoreEntitySet="ordenOrigen">
                 <ScalarProperty Name="idordenorigen" ColumnName="idordenorigen" />
@@ -865,7 +867,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ordenResultado">
+          <EntitySetMapping Name="ordenResultadoes">
             <EntityTypeMapping TypeName="inventarioModel.ordenResultado">
               <MappingFragment StoreEntitySet="ordenResultado">
                 <ScalarProperty Name="idordenresultados" ColumnName="idordenresultados" />
@@ -890,7 +892,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="proceso">
+          <EntitySetMapping Name="procesoes">
             <EntityTypeMapping TypeName="inventarioModel.proceso">
               <MappingFragment StoreEntitySet="proceso">
                 <ScalarProperty Name="idproceso" ColumnName="idproceso" />
@@ -950,6 +952,7 @@
                 <ScalarProperty Name="pesoneto" ColumnName="pesoneto" />
                 <ScalarProperty Name="tiposaco" ColumnName="tiposaco" />
                 <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="pesototalsacos" ColumnName="pesototalsacos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -976,7 +979,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="rol">
+          <EntitySetMapping Name="rols">
             <EntityTypeMapping TypeName="inventarioModel.rol">
               <MappingFragment StoreEntitySet="rol">
                 <ScalarProperty Name="idrol" ColumnName="idrol" />
@@ -1019,7 +1022,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

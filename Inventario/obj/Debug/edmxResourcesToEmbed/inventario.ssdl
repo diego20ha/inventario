@@ -187,6 +187,7 @@
     <Property Name="pesoneto" Type="float" />
     <Property Name="tiposaco" Type="varchar" MaxLength="45" />
     <Property Name="observaciones" Type="varchar" MaxLength="45" />
+    <Property Name="pesototalsacos" Type="float" />
   </EntityType>
   <EntityType Name="reciboSalidaOrigen">
     <Key>
