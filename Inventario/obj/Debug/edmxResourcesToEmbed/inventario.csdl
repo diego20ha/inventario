@@ -13,7 +13,7 @@
     <EntitySet Name="reciboSalida" EntityType="inventarioModel.reciboSalida" />
     <EntitySet Name="reciboSalidaOrigen" EntityType="inventarioModel.reciboSalidaOrigen" />
     <EntitySet Name="reciboSalidaSacos" EntityType="inventarioModel.reciboSalidaSacos" />
-    <EntitySet Name="rols" EntityType="inventarioModel.rol" />
+    <EntitySet Name="rol" EntityType="inventarioModel.rol" />
     <EntitySet Name="salidaTarima" EntityType="inventarioModel.salidaTarima" />
     <EntitySet Name="usuario" EntityType="inventarioModel.usuario" />
     <AssociationSet Name="idcliente" Association="inventarioModel.idcliente">
@@ -65,7 +65,7 @@
       <End Role="salidaTarima" EntitySet="salidaTarima" />
     </AssociationSet>
     <AssociationSet Name="idrol" Association="inventarioModel.idrol">
-      <End Role="rol" EntitySet="rols" />
+      <End Role="rol" EntitySet="rol" />
       <End Role="usuario" EntitySet="usuario" />
     </AssociationSet>
     <FunctionImport Name="getLastReciboEntradaID" ReturnType="Collection(Int32)" />

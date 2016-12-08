@@ -60,7 +60,7 @@ namespace Inventario
 
                     if (user != null)
                     {
-                        var roles = (from role in inventario.rols
+                        var roles = (from role in inventario.rol
                                      where role.idrol == user.idrol
                                      select role.idrol).ToList();
 

@@ -152,7 +152,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="rols">
+    <EntitySetMapping Name="rol">
       <EntityTypeMapping TypeName="inventarioModel.rol">
         <MappingFragment StoreEntitySet="rol">
           <ScalarProperty Name="idrol" ColumnName="idrol" />

@@ -25,7 +25,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var roles = (from role in inventario.rols
+                    var roles = (from role in inventario.rol
                                        select role).ToList();
 
                     if (roles.Count > 0)

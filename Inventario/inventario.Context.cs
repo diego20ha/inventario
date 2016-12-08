@@ -40,7 +40,7 @@ namespace Inventario
         public DbSet<reciboSalida> reciboSalida { get; set; }
         public DbSet<reciboSalidaOrigen> reciboSalidaOrigen { get; set; }
         public DbSet<reciboSalidaSacos> reciboSalidaSacos { get; set; }
-        public DbSet<rol> rols { get; set; }
+        public DbSet<rol> rol { get; set; }
         public DbSet<salidaTarima> salidaTarima { get; set; }
         public DbSet<usuario> usuario { get; set; }
     
