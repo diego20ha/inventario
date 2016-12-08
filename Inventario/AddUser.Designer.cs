@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             this.labelNombreUsuario = new System.Windows.Forms.Label();
             this.txtBoxNombre = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelRol = new System.Windows.Forms.Label();
             this.cmbRol = new System.Windows.Forms.ComboBox();
@@ -60,13 +60,13 @@
             this.txtBoxNombre.Size = new System.Drawing.Size(171, 24);
             this.txtBoxNombre.TabIndex = 1;
             // 
-            // textBox1
+            // txtBoxPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(268, 126);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 24);
-            this.textBox1.TabIndex = 3;
+            this.txtBoxPassword.Location = new System.Drawing.Point(268, 126);
+            this.txtBoxPassword.Multiline = true;
+            this.txtBoxPassword.Name = "txtBoxPassword";
+            this.txtBoxPassword.Size = new System.Drawing.Size(171, 24);
+            this.txtBoxPassword.TabIndex = 3;
             // 
             // labelPassword
             // 
@@ -159,7 +159,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbRol);
             this.Controls.Add(this.labelRol);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.txtBoxNombre);
             this.Controls.Add(this.labelNombreUsuario);
@@ -178,7 +178,7 @@
 
         private System.Windows.Forms.Label labelNombreUsuario;
         private System.Windows.Forms.TextBox txtBoxNombre;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelRol;
         private System.Windows.Forms.ComboBox cmbRol;

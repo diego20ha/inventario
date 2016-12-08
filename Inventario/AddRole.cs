@@ -91,7 +91,7 @@ namespace Inventario
                         inventario.rol.Add(newRol);
                         inventario.SaveChanges();
                         this.Close();
-                        MessageBox.Show("El Rol de usuario fue agregado exitosamente.", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("El Rol de usuario fue agregado exitosamente.", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
