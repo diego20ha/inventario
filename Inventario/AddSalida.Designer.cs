@@ -701,6 +701,7 @@
             this.btnSaveRecibo.TabIndex = 236;
             this.btnSaveRecibo.Text = "Guardar";
             this.btnSaveRecibo.UseVisualStyleBackColor = true;
+            this.btnSaveRecibo.Click += new System.EventHandler(this.btnSaveRecibo_Click);
             // 
             // txtBoxPesoNeto
             // 

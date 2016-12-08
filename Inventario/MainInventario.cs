@@ -17,6 +17,12 @@ namespace Inventario
             InitializeComponent();
         }
 
+        public void showAdminOptions ()
+        {
+            this.MenuAddRolBtn.Visible = true;
+            this.MenuAddUserBtn.Visible = true;
+        }
+
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -45,14 +51,12 @@ namespace Inventario
         {
             formAddRole role = new formAddRole();
             role.Show();
-            this.Hide();
         }
 
         private void MenuAddUserBtn_Click(object sender, EventArgs e)
         {
             AddUser usuario = new AddUser();
             usuario.Show();
-            this.Hide();
         }
     }
 }

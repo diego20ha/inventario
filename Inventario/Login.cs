@@ -54,14 +54,24 @@ namespace Inventario
             {
                 using (inventarioEntities inventario = new inventarioEntities())
                 {
-                    var query = from o in inventario.usuario
+                    var user = (from o in inventario.usuario
                                 where o.nombreusuario == textBoxUser.Text && o.contrasena == textBoxPassword.Text
-                                select o;
-                    if (query.SingleOrDefault() != null)
+                                select o).SingleOrDefault();
+
+                    if (user != null)
                     {
+                        var roles = (from role in inventario.rols
+                                     where role.idrol == user.idrol
+                                     select role.idrol).ToList();
+
                         MainInventario inventarioForm = new MainInventario();
                         this.Hide();
                         inventarioForm.Show();
+                        
+                        if(roles.Count > 0)
+                        {
+                            inventarioForm.showAdminOptions();
+                        }
                     }
                     else
                     {

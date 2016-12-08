@@ -74,11 +74,11 @@
             // MenuAddBtn
             // 
             this.MenuAddBtn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuAddRolBtn,
+            this.MenuAddUserBtn,
             this.MenuAddEntradaBtn,
             this.MenuAddSalidaBtn,
-            this.MenuAddOTBtn,
-            this.MenuAddRolBtn,
-            this.MenuAddUserBtn});
+            this.MenuAddOTBtn});
             this.MenuAddBtn.Name = "MenuAddBtn";
             this.MenuAddBtn.Size = new System.Drawing.Size(61, 20);
             this.MenuAddBtn.Text = "Agregar";

@@ -19,7 +19,39 @@ namespace Inventario
 
         private void AddUser_Load(object sender, EventArgs e)
         {
+            try
+            {
+                using (inventarioEntities inventario = new inventarioEntities())
+                {
+                    inventario.Configuration.AutoDetectChangesEnabled = false;
 
+                    var roles = (from role in inventario.rols
+                                       select role).ToList();
+
+                    if (roles.Count > 0)
+                    {
+                        cmbRol.ValueMember = "idrol";
+                        cmbRol.DisplayMember = "nombre";
+                        cmbRol.DataSource = roles;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error loading roles.", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

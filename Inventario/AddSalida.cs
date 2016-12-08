@@ -696,5 +696,10 @@ namespace Inventario
         {
             Application.Exit();
         }
+
+        private void btnSaveRecibo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
