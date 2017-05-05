@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityFramework.BulkInsert.Extensions;
 using EntityFramework.MappingAPI;
+using System.Data.SqlClient;
 
 namespace Inventario
 {
@@ -441,7 +442,7 @@ namespace Inventario
             try
             {
                 int idSacos = getSacosEntradaId();
-                reciboEntradaSacos sacos = new reciboEntradaSacos();
+                reciboEntradaSaco sacos = new reciboEntradaSaco();
                 if (!String.IsNullOrEmpty(txbCantSacos1.Text))
                 {
                     sacos.idreciboentradasacos = idSacos;
@@ -454,7 +455,7 @@ namespace Inventario
                 }
                 if (!String.IsNullOrEmpty(txbCantidadSacos2.Text))
                 {
-                    reciboEntradaSacos sacos2 = new reciboEntradaSacos();
+                    reciboEntradaSaco sacos2 = new reciboEntradaSaco();
                     idSacos++;
                     sacos2.idreciboentradasacos = idSacos;
                     sacos2.idreciboentrada = int.Parse(txtBoxNumRec.Text);
@@ -510,7 +511,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var tarimas = (from tar in inventario.entradaTarima
+                    var tarimas = (from tar in inventario.entradaTarimas
                                        select tar).ToList();
 
                     if (tarimas.Count > 0)
@@ -536,7 +537,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var inventarios = (from inv in inventario.inventario
+                    var inventarios = (from inv in inventario.inventarios
                                        select inv).ToList();
 
                     if (inventarios.Count > 0)
@@ -564,7 +565,7 @@ namespace Inventario
 
                     if (recibo != null)
                     {
-                        inventario.reciboEntrada.Add(recibo);
+                        inventario.reciboEntradas.Add(recibo);
                         inventario.SaveChanges();
                         parseTarimas();
                         parseSacos();
@@ -606,7 +607,7 @@ namespace Inventario
 
                     if (tarima != null)
                     {
-                        inventario.entradaTarima.Add(tarima);
+                        inventario.entradaTarimas.Add(tarima);
                         inventario.SaveChanges();
                     }
                 }
@@ -617,7 +618,7 @@ namespace Inventario
             }
         }
 
-        private void insertSaco(reciboEntradaSacos saco)
+        private void insertSaco(reciboEntradaSaco saco)
         {
             try
             {
@@ -656,12 +657,11 @@ namespace Inventario
 
         private void AddRecibo_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'clienteDataSet.cliente' table. You can move, or remove it, as needed.
             this.clienteTableAdapter.Fill(this.clienteDataSet.cliente);
             using (inventarioEntities inventario = new inventarioEntities())
             {
                 inventario.Configuration.AutoDetectChangesEnabled = false;
-
+                /*
                 var recibos = (from recibo in inventario.reciboEntrada
                                  select recibo.idreciboentrada).ToList();
                 int recibosCount = recibos.Count;
@@ -669,6 +669,18 @@ namespace Inventario
                 if (recibosCount > 0)
                 {
                     txtBoxNumRec.Text = (recibos[recibosCount-1] + 1).ToString().PadLeft(4, '0');
+                }
+                else
+                {
+                    txtBoxNumRec.Text = "0001";
+                }
+                */
+
+                Int32 elID = inventario.getLastReciboEntradaID();
+
+                if (elID != null && elID != -1)
+                {
+                    txtBoxNumRec.Text = elID.ToString().PadLeft(4, '0');
                 }
                 else
                 {

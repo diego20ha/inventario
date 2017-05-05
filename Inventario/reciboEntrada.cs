@@ -16,8 +16,8 @@ namespace Inventario
     {
         public reciboEntrada()
         {
-            this.entradaTarima = new HashSet<entradaTarima>();
-            this.reciboEntradaSacos = new HashSet<reciboEntradaSacos>();
+            this.entradaTarimas = new HashSet<entradaTarima>();
+            this.reciboEntradaSacos = new HashSet<reciboEntradaSaco>();
         }
     
         public int idreciboentrada { get; set; }
@@ -37,8 +37,8 @@ namespace Inventario
         public string observaciones { get; set; }
         public Nullable<double> pesototaltarimas { get; set; }
     
-        public virtual ICollection<entradaTarima> entradaTarima { get; set; }
+        public virtual ICollection<entradaTarima> entradaTarimas { get; set; }
         public virtual inventario inventario { get; set; }
-        public virtual ICollection<reciboEntradaSacos> reciboEntradaSacos { get; set; }
+        public virtual ICollection<reciboEntradaSaco> reciboEntradaSacos { get; set; }
     }
 }

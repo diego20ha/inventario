@@ -16,12 +16,12 @@ namespace Inventario
     {
         public rol()
         {
-            this.usuario = new HashSet<usuario>();
+            this.usuarios = new HashSet<usuario>();
         }
     
         public int idrol { get; set; }
         public string nombre { get; set; }
     
-        public virtual ICollection<usuario> usuario { get; set; }
+        public virtual ICollection<usuario> usuarios { get; set; }
     }
 }

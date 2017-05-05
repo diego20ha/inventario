@@ -32,11 +32,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MenuHomeBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAddBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuAddRolBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuAddUserBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAddEntradaBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAddSalidaBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAddOTBtn = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuAddRolBtn = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuAddUserBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuUpdateBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuUpdateEntradaBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuUpdateSalidaBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +70,7 @@
             this.MenuHomeBtn.Name = "MenuHomeBtn";
             this.MenuHomeBtn.Size = new System.Drawing.Size(48, 20);
             this.MenuHomeBtn.Text = "Inicio";
+            this.MenuHomeBtn.Click += new System.EventHandler(this.MenuHomeBtn_Click);
             // 
             // MenuAddBtn
             // 
@@ -82,6 +83,22 @@
             this.MenuAddBtn.Name = "MenuAddBtn";
             this.MenuAddBtn.Size = new System.Drawing.Size(61, 20);
             this.MenuAddBtn.Text = "Agregar";
+            // 
+            // MenuAddRolBtn
+            // 
+            this.MenuAddRolBtn.Name = "MenuAddRolBtn";
+            this.MenuAddRolBtn.Size = new System.Drawing.Size(163, 22);
+            this.MenuAddRolBtn.Text = "Rol";
+            this.MenuAddRolBtn.Visible = false;
+            this.MenuAddRolBtn.Click += new System.EventHandler(this.MenuAddRolBtn_Click);
+            // 
+            // MenuAddUserBtn
+            // 
+            this.MenuAddUserBtn.Name = "MenuAddUserBtn";
+            this.MenuAddUserBtn.Size = new System.Drawing.Size(163, 22);
+            this.MenuAddUserBtn.Text = "Usuario";
+            this.MenuAddUserBtn.Visible = false;
+            this.MenuAddUserBtn.Click += new System.EventHandler(this.MenuAddUserBtn_Click);
             // 
             // MenuAddEntradaBtn
             // 
@@ -102,22 +119,6 @@
             this.MenuAddOTBtn.Name = "MenuAddOTBtn";
             this.MenuAddOTBtn.Size = new System.Drawing.Size(163, 22);
             this.MenuAddOTBtn.Text = "Orden de trabajo";
-            // 
-            // MenuAddRolBtn
-            // 
-            this.MenuAddRolBtn.Name = "MenuAddRolBtn";
-            this.MenuAddRolBtn.Size = new System.Drawing.Size(163, 22);
-            this.MenuAddRolBtn.Text = "Rol";
-            this.MenuAddRolBtn.Visible = false;
-            this.MenuAddRolBtn.Click += new System.EventHandler(this.MenuAddRolBtn_Click);
-            // 
-            // MenuAddUserBtn
-            // 
-            this.MenuAddUserBtn.Name = "MenuAddUserBtn";
-            this.MenuAddUserBtn.Size = new System.Drawing.Size(163, 22);
-            this.MenuAddUserBtn.Text = "Usuario";
-            this.MenuAddUserBtn.Visible = false;
-            this.MenuAddUserBtn.Click += new System.EventHandler(this.MenuAddUserBtn_Click);
             // 
             // MenuUpdateBtn
             // 

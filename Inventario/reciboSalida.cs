@@ -16,9 +16,9 @@ namespace Inventario
     {
         public reciboSalida()
         {
-            this.reciboSalidaOrigen = new HashSet<reciboSalidaOrigen>();
-            this.reciboSalidaSacos = new HashSet<reciboSalidaSacos>();
-            this.salidaTarima = new HashSet<salidaTarima>();
+            this.reciboSalidaOrigens = new HashSet<reciboSalidaOrigen>();
+            this.reciboSalidaSacos = new HashSet<reciboSalidaSaco>();
+            this.salidaTarimas = new HashSet<salidaTarima>();
         }
     
         public int idrecibosalida { get; set; }
@@ -41,8 +41,8 @@ namespace Inventario
         public Nullable<double> pesototalsacos { get; set; }
     
         public virtual inventario inventario { get; set; }
-        public virtual ICollection<reciboSalidaOrigen> reciboSalidaOrigen { get; set; }
-        public virtual ICollection<reciboSalidaSacos> reciboSalidaSacos { get; set; }
-        public virtual ICollection<salidaTarima> salidaTarima { get; set; }
+        public virtual ICollection<reciboSalidaOrigen> reciboSalidaOrigens { get; set; }
+        public virtual ICollection<reciboSalidaSaco> reciboSalidaSacos { get; set; }
+        public virtual ICollection<salidaTarima> salidaTarimas { get; set; }
     }
 }

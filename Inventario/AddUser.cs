@@ -28,7 +28,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var roles = (from role in inventario.rol
+                    var roles = (from role in inventario.rols
                                        select role).ToList();
 
                     if (roles.Count > 0)
@@ -56,7 +56,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var element = (from el in inventario.usuario
+                    var element = (from el in inventario.usuarios
                                      select el).ToList();
 
                     if (element.Count > 0)
@@ -79,7 +79,7 @@ namespace Inventario
             int idNextUsuario = getNextUserId();
             usuario newUsuario = new usuario();
 
-            if (idNextUsuario != null)
+            if (idNextUsuario >= 0)
             {
                 newUsuario.idusuario = idNextUsuario;
             }
@@ -112,7 +112,7 @@ namespace Inventario
 
                     if (user != null)
                     {
-                        inventario.usuario.Add(user);
+                        inventario.usuarios.Add(user);
                         inventario.SaveChanges();
                         inventario.SaveChanges();
                         this.Close();

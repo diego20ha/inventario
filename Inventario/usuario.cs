@@ -16,7 +16,7 @@ namespace Inventario
     {
         public usuario()
         {
-            this.cliente = new HashSet<cliente>();
+            this.clientes = new HashSet<cliente>();
         }
     
         public int idusuario { get; set; }
@@ -24,7 +24,7 @@ namespace Inventario
         public string nombreusuario { get; set; }
         public string contrasena { get; set; }
     
-        public virtual ICollection<cliente> cliente { get; set; }
+        public virtual ICollection<cliente> clientes { get; set; }
         public virtual rol rol { get; set; }
     }
 }

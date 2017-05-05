@@ -43,7 +43,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var rols = (from role in inventario.rol
+                    var rols = (from role in inventario.rols
                                    select role).ToList();
                     Boolean roleExists = validateRoleName(rols);
 
@@ -88,7 +88,7 @@ namespace Inventario
                         newRol.idrol = rolId;
                         newRol.nombre = nombreRol;
 
-                        inventario.rol.Add(newRol);
+                        inventario.rols.Add(newRol);
                         inventario.SaveChanges();
                         this.Close();
                         MessageBox.Show("El Rol de usuario fue agregado exitosamente.", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);

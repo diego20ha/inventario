@@ -58,5 +58,10 @@ namespace Inventario
             AddUser usuario = new AddUser();
             usuario.Show();
         }
+
+        private void MenuHomeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

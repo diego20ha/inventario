@@ -27,7 +27,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var entradas = (from entradasOpt in inventario.reciboEntrada
+                    var entradas = (from entradasOpt in inventario.reciboEntradas
                                     where entradasOpt.idinventario == invID
                                     select new { NUMERO = entradasOpt.idreciboentrada, CLIENTE = entradasOpt.cliente, CALIDAD = entradasOpt.calidad, SACOS = entradasOpt.cantidadsacos, PESO = entradasOpt.pesoneto, FECHA = entradasOpt.fecha }).ToList();
 
@@ -36,14 +36,14 @@ namespace Inventario
                         dgvOrigenes.DataSource = entradas;
                     }
 
-                    var ordenID = (from ordenes in inventario.ordenTrabajo
+                    var ordenID = (from ordenes in inventario.ordenTrabajoes
                                    where ordenes.idinventario == invID
                                    select ordenes.idordentrabajo).ToList();
                     if (ordenID.Count > 0)
                     {
                         int selectedOrdenID = ordenID.Count;
 
-                        var ordenesOrigen = (from ordenesOpt in inventario.ordenOrigen
+                        var ordenesOrigen = (from ordenesOpt in inventario.ordenOrigens
                                              where ordenesOpt.idordentrabajo == selectedOrdenID
                                              select ordenesOpt).ToList();
 

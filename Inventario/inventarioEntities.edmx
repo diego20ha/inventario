@@ -404,74 +404,74 @@
     <edmx:ConceptualModels>
       <Schema Namespace="inventarioModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="inventarioEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="cliente" EntityType="inventarioModel.cliente" />
-          <EntitySet Name="entradaTarima" EntityType="inventarioModel.entradaTarima" />
-          <EntitySet Name="inventario" EntityType="inventarioModel.inventario" />
+          <EntitySet Name="clientes" EntityType="inventarioModel.cliente" />
+          <EntitySet Name="entradaTarimas" EntityType="inventarioModel.entradaTarima" />
+          <EntitySet Name="inventarios" EntityType="inventarioModel.inventario" />
           <EntitySet Name="ordenOrigens" EntityType="inventarioModel.ordenOrigen" />
           <EntitySet Name="ordenResultadoes" EntityType="inventarioModel.ordenResultado" />
-          <EntitySet Name="ordenTrabajo" EntityType="inventarioModel.ordenTrabajo" />
+          <EntitySet Name="ordenTrabajoes" EntityType="inventarioModel.ordenTrabajo" />
           <EntitySet Name="procesoes" EntityType="inventarioModel.proceso" />
-          <EntitySet Name="reciboEntrada" EntityType="inventarioModel.reciboEntrada" />
-          <EntitySet Name="reciboEntradaSacos" EntityType="inventarioModel.reciboEntradaSacos" />
-          <EntitySet Name="reciboSalida" EntityType="inventarioModel.reciboSalida" />
-          <EntitySet Name="reciboSalidaOrigen" EntityType="inventarioModel.reciboSalidaOrigen" />
-          <EntitySet Name="reciboSalidaSacos" EntityType="inventarioModel.reciboSalidaSacos" />
-          <EntitySet Name="rol" EntityType="inventarioModel.rol" />
-          <EntitySet Name="salidaTarima" EntityType="inventarioModel.salidaTarima" />
-          <EntitySet Name="usuario" EntityType="inventarioModel.usuario" />
+          <EntitySet Name="reciboEntradas" EntityType="inventarioModel.reciboEntrada" />
+          <EntitySet Name="reciboEntradaSacos" EntityType="inventarioModel.reciboEntradaSaco" />
+          <EntitySet Name="reciboSalidas" EntityType="inventarioModel.reciboSalida" />
+          <EntitySet Name="reciboSalidaOrigens" EntityType="inventarioModel.reciboSalidaOrigen" />
+          <EntitySet Name="reciboSalidaSacos" EntityType="inventarioModel.reciboSalidaSaco" />
+          <EntitySet Name="rols" EntityType="inventarioModel.rol" />
+          <EntitySet Name="salidaTarimas" EntityType="inventarioModel.salidaTarima" />
+          <EntitySet Name="usuarios" EntityType="inventarioModel.usuario" />
           <AssociationSet Name="idcliente" Association="inventarioModel.idcliente">
-            <End Role="cliente" EntitySet="cliente" />
-            <End Role="inventario" EntitySet="inventario" />
+            <End Role="cliente" EntitySet="clientes" />
+            <End Role="inventario" EntitySet="inventarios" />
           </AssociationSet>
           <AssociationSet Name="idusuario" Association="inventarioModel.idusuario">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="cliente" EntitySet="cliente" />
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="cliente" EntitySet="clientes" />
           </AssociationSet>
           <AssociationSet Name="idreciboentradatarima" Association="inventarioModel.idreciboentradatarima">
-            <End Role="reciboEntrada" EntitySet="reciboEntrada" />
-            <End Role="entradaTarima" EntitySet="entradaTarima" />
+            <End Role="reciboEntrada" EntitySet="reciboEntradas" />
+            <End Role="entradaTarima" EntitySet="entradaTarimas" />
           </AssociationSet>
           <AssociationSet Name="idinventarioentrada" Association="inventarioModel.idinventarioentrada">
-            <End Role="inventario" EntitySet="inventario" />
-            <End Role="reciboEntrada" EntitySet="reciboEntrada" />
+            <End Role="inventario" EntitySet="inventarios" />
+            <End Role="reciboEntrada" EntitySet="reciboEntradas" />
           </AssociationSet>
           <AssociationSet Name="idinventarioorden" Association="inventarioModel.idinventarioorden">
-            <End Role="inventario" EntitySet="inventario" />
-            <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
+            <End Role="inventario" EntitySet="inventarios" />
+            <End Role="ordenTrabajo" EntitySet="ordenTrabajoes" />
           </AssociationSet>
           <AssociationSet Name="idinventariosalida" Association="inventarioModel.idinventariosalida">
-            <End Role="inventario" EntitySet="inventario" />
-            <End Role="reciboSalida" EntitySet="reciboSalida" />
+            <End Role="inventario" EntitySet="inventarios" />
+            <End Role="reciboSalida" EntitySet="reciboSalidas" />
           </AssociationSet>
           <AssociationSet Name="idordentrabajo" Association="inventarioModel.idordentrabajo">
-            <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
+            <End Role="ordenTrabajo" EntitySet="ordenTrabajoes" />
             <End Role="ordenOrigen" EntitySet="ordenOrigens" />
           </AssociationSet>
           <AssociationSet Name="idordentrabajoresultado" Association="inventarioModel.idordentrabajoresultado">
-            <End Role="ordenTrabajo" EntitySet="ordenTrabajo" />
+            <End Role="ordenTrabajo" EntitySet="ordenTrabajoes" />
             <End Role="ordenResultado" EntitySet="ordenResultadoes" />
           </AssociationSet>
           <AssociationSet Name="idreciboentradasacos" Association="inventarioModel.idreciboentradasacos">
-            <End Role="reciboEntrada" EntitySet="reciboEntrada" />
+            <End Role="reciboEntrada" EntitySet="reciboEntradas" />
             <End Role="reciboEntradaSacos" EntitySet="reciboEntradaSacos" />
           </AssociationSet>
           <AssociationSet Name="idrecibosalida" Association="inventarioModel.idrecibosalida">
-            <End Role="reciboSalida" EntitySet="reciboSalida" />
-            <End Role="reciboSalidaOrigen" EntitySet="reciboSalidaOrigen" />
+            <End Role="reciboSalida" EntitySet="reciboSalidas" />
+            <End Role="reciboSalidaOrigen" EntitySet="reciboSalidaOrigens" />
           </AssociationSet>
           <AssociationSet Name="idrecibosalidasacos" Association="inventarioModel.idrecibosalidasacos">
-            <End Role="reciboSalida" EntitySet="reciboSalida" />
+            <End Role="reciboSalida" EntitySet="reciboSalidas" />
             <End Role="reciboSalidaSacos" EntitySet="reciboSalidaSacos" />
           </AssociationSet>
           <AssociationSet Name="idrecibosalidatarima" Association="inventarioModel.idrecibosalidatarima">
-            <End Role="reciboSalida" EntitySet="reciboSalida" />
-            <End Role="salidaTarima" EntitySet="salidaTarima" />
+            <End Role="reciboSalida" EntitySet="reciboSalidas" />
+            <End Role="salidaTarima" EntitySet="salidaTarimas" />
           </AssociationSet>
           <AssociationSet Name="idrol" Association="inventarioModel.idrol">
-            <End Role="rol" EntitySet="rol" />
-            <End Role="usuario" EntitySet="usuario" />
+            <End Role="rol" EntitySet="rols" />
+            <End Role="usuario" EntitySet="usuarios" />
           </AssociationSet>
-          <FunctionImport Name="getLastReciboEntradaID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="getLastReciboEntradaID" />
           <FunctionImport Name="getLastReciboSalidaID" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <EntityType Name="cliente">
@@ -481,7 +481,7 @@
           <Property Name="idcliente" Type="Int32" Nullable="false" />
           <Property Name="idusuario" Type="Int32" Nullable="false" />
           <Property Name="nombrecliente" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="inventario" Relationship="inventarioModel.idcliente" FromRole="cliente" ToRole="inventario" />
+          <NavigationProperty Name="inventarios" Relationship="inventarioModel.idcliente" FromRole="cliente" ToRole="inventario" />
           <NavigationProperty Name="usuario" Relationship="inventarioModel.idusuario" FromRole="cliente" ToRole="usuario" />
         </EntityType>
         <EntityType Name="entradaTarima">
@@ -501,9 +501,9 @@
           <Property Name="idcliente" Type="Int32" Nullable="false" />
           <Property Name="nombreinventario" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="cliente" Relationship="inventarioModel.idcliente" FromRole="inventario" ToRole="cliente" />
-          <NavigationProperty Name="reciboEntrada" Relationship="inventarioModel.idinventarioentrada" FromRole="inventario" ToRole="reciboEntrada" />
-          <NavigationProperty Name="ordenTrabajo" Relationship="inventarioModel.idinventarioorden" FromRole="inventario" ToRole="ordenTrabajo" />
-          <NavigationProperty Name="reciboSalida" Relationship="inventarioModel.idinventariosalida" FromRole="inventario" ToRole="reciboSalida" />
+          <NavigationProperty Name="reciboEntradas" Relationship="inventarioModel.idinventarioentrada" FromRole="inventario" ToRole="reciboEntrada" />
+          <NavigationProperty Name="ordenTrabajoes" Relationship="inventarioModel.idinventarioorden" FromRole="inventario" ToRole="ordenTrabajo" />
+          <NavigationProperty Name="reciboSalidas" Relationship="inventarioModel.idinventariosalida" FromRole="inventario" ToRole="reciboSalida" />
         </EntityType>
         <EntityType Name="ordenOrigen">
           <Key>
@@ -572,11 +572,11 @@
           <Property Name="pesoneto" Type="Double" />
           <Property Name="observaciones" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
           <Property Name="pesototaltarimas" Type="Double" />
-          <NavigationProperty Name="entradaTarima" Relationship="inventarioModel.idreciboentradatarima" FromRole="reciboEntrada" ToRole="entradaTarima" />
+          <NavigationProperty Name="entradaTarimas" Relationship="inventarioModel.idreciboentradatarima" FromRole="reciboEntrada" ToRole="entradaTarima" />
           <NavigationProperty Name="inventario" Relationship="inventarioModel.idinventarioentrada" FromRole="reciboEntrada" ToRole="inventario" />
           <NavigationProperty Name="reciboEntradaSacos" Relationship="inventarioModel.idreciboentradasacos" FromRole="reciboEntrada" ToRole="reciboEntradaSacos" />
         </EntityType>
-        <EntityType Name="reciboEntradaSacos">
+        <EntityType Name="reciboEntradaSaco">
           <Key>
             <PropertyRef Name="idreciboentradasacos" />
           </Key>
@@ -610,9 +610,9 @@
           <Property Name="observaciones" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="pesototalsacos" Type="Double" />
           <NavigationProperty Name="inventario" Relationship="inventarioModel.idinventariosalida" FromRole="reciboSalida" ToRole="inventario" />
-          <NavigationProperty Name="reciboSalidaOrigen" Relationship="inventarioModel.idrecibosalida" FromRole="reciboSalida" ToRole="reciboSalidaOrigen" />
+          <NavigationProperty Name="reciboSalidaOrigens" Relationship="inventarioModel.idrecibosalida" FromRole="reciboSalida" ToRole="reciboSalidaOrigen" />
           <NavigationProperty Name="reciboSalidaSacos" Relationship="inventarioModel.idrecibosalidasacos" FromRole="reciboSalida" ToRole="reciboSalidaSacos" />
-          <NavigationProperty Name="salidaTarima" Relationship="inventarioModel.idrecibosalidatarima" FromRole="reciboSalida" ToRole="salidaTarima" />
+          <NavigationProperty Name="salidaTarimas" Relationship="inventarioModel.idrecibosalidatarima" FromRole="reciboSalida" ToRole="salidaTarima" />
         </EntityType>
         <EntityType Name="reciboSalidaOrigen">
           <Key>
@@ -627,7 +627,7 @@
           <Property Name="pesoneto" Type="Double" />
           <NavigationProperty Name="reciboSalida" Relationship="inventarioModel.idrecibosalida" FromRole="reciboSalidaOrigen" ToRole="reciboSalida" />
         </EntityType>
-        <EntityType Name="reciboSalidaSacos">
+        <EntityType Name="reciboSalidaSaco">
           <Key>
             <PropertyRef Name="idrecibosalidasacos" />
           </Key>
@@ -644,7 +644,7 @@
           </Key>
           <Property Name="idrol" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="usuario" Relationship="inventarioModel.idrol" FromRole="rol" ToRole="usuario" />
+          <NavigationProperty Name="usuarios" Relationship="inventarioModel.idrol" FromRole="rol" ToRole="usuario" />
         </EntityType>
         <EntityType Name="salidaTarima">
           <Key>
@@ -663,7 +663,7 @@
           <Property Name="idrol" Type="Int32" Nullable="false" />
           <Property Name="nombreusuario" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="contrasena" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="cliente" Relationship="inventarioModel.idusuario" FromRole="usuario" ToRole="cliente" />
+          <NavigationProperty Name="clientes" Relationship="inventarioModel.idusuario" FromRole="usuario" ToRole="cliente" />
           <NavigationProperty Name="rol" Relationship="inventarioModel.idrol" FromRole="usuario" ToRole="rol" />
         </EntityType>
         <Association Name="idcliente">
@@ -764,7 +764,7 @@
         </Association>
         <Association Name="idreciboentradasacos">
           <End Role="reciboEntrada" Type="inventarioModel.reciboEntrada" Multiplicity="1" />
-          <End Role="reciboEntradaSacos" Type="inventarioModel.reciboEntradaSacos" Multiplicity="*" />
+          <End Role="reciboEntradaSacos" Type="inventarioModel.reciboEntradaSaco" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="reciboEntrada">
               <PropertyRef Name="idreciboentrada" />
@@ -788,7 +788,7 @@
         </Association>
         <Association Name="idrecibosalidasacos">
           <End Role="reciboSalida" Type="inventarioModel.reciboSalida" Multiplicity="1" />
-          <End Role="reciboSalidaSacos" Type="inventarioModel.reciboSalidaSacos" Multiplicity="*" />
+          <End Role="reciboSalidaSacos" Type="inventarioModel.reciboSalidaSaco" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="reciboSalida">
               <PropertyRef Name="idrecibosalida" />
@@ -828,7 +828,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="inventarioModelStoreContainer" CdmEntityContainer="inventarioEntities">
-          <EntitySetMapping Name="cliente">
+          <EntitySetMapping Name="clientes">
             <EntityTypeMapping TypeName="inventarioModel.cliente">
               <MappingFragment StoreEntitySet="cliente">
                 <ScalarProperty Name="idcliente" ColumnName="idcliente" />
@@ -837,7 +837,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="entradaTarima">
+          <EntitySetMapping Name="entradaTarimas">
             <EntityTypeMapping TypeName="inventarioModel.entradaTarima">
               <MappingFragment StoreEntitySet="entradaTarima">
                 <ScalarProperty Name="idtarimaentrada" ColumnName="idtarimaentrada" />
@@ -846,7 +846,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="inventario">
+          <EntitySetMapping Name="inventarios">
             <EntityTypeMapping TypeName="inventarioModel.inventario">
               <MappingFragment StoreEntitySet="inventario">
                 <ScalarProperty Name="idinventario" ColumnName="idinventario" />
@@ -879,7 +879,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ordenTrabajo">
+          <EntitySetMapping Name="ordenTrabajoes">
             <EntityTypeMapping TypeName="inventarioModel.ordenTrabajo">
               <MappingFragment StoreEntitySet="ordenTrabajo">
                 <ScalarProperty Name="idordentrabajo" ColumnName="idordentrabajo" />
@@ -899,7 +899,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="reciboEntrada">
+          <EntitySetMapping Name="reciboEntradas">
             <EntityTypeMapping TypeName="inventarioModel.reciboEntrada">
               <MappingFragment StoreEntitySet="reciboEntrada">
                 <ScalarProperty Name="idreciboentrada" ColumnName="idreciboentrada" />
@@ -922,7 +922,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="reciboEntradaSacos">
-            <EntityTypeMapping TypeName="inventarioModel.reciboEntradaSacos">
+            <EntityTypeMapping TypeName="inventarioModel.reciboEntradaSaco">
               <MappingFragment StoreEntitySet="reciboEntradaSacos">
                 <ScalarProperty Name="idreciboentradasacos" ColumnName="idreciboentradasacos" />
                 <ScalarProperty Name="idreciboentrada" ColumnName="idreciboentrada" />
@@ -932,7 +932,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="reciboSalida">
+          <EntitySetMapping Name="reciboSalidas">
             <EntityTypeMapping TypeName="inventarioModel.reciboSalida">
               <MappingFragment StoreEntitySet="reciboSalida">
                 <ScalarProperty Name="idrecibosalida" ColumnName="idrecibosalida" />
@@ -956,7 +956,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="reciboSalidaOrigen">
+          <EntitySetMapping Name="reciboSalidaOrigens">
             <EntityTypeMapping TypeName="inventarioModel.reciboSalidaOrigen">
               <MappingFragment StoreEntitySet="reciboSalidaOrigen">
                 <ScalarProperty Name="idrecibosalidaorigin" ColumnName="idrecibosalidaorigin" />
@@ -969,7 +969,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="reciboSalidaSacos">
-            <EntityTypeMapping TypeName="inventarioModel.reciboSalidaSacos">
+            <EntityTypeMapping TypeName="inventarioModel.reciboSalidaSaco">
               <MappingFragment StoreEntitySet="reciboSalidaSacos">
                 <ScalarProperty Name="idrecibosalidasacos" ColumnName="idrecibosalidasacos" />
                 <ScalarProperty Name="idrecibosalida" ColumnName="idrecibosalida" />
@@ -979,7 +979,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="rol">
+          <EntitySetMapping Name="rols">
             <EntityTypeMapping TypeName="inventarioModel.rol">
               <MappingFragment StoreEntitySet="rol">
                 <ScalarProperty Name="idrol" ColumnName="idrol" />
@@ -987,7 +987,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="salidaTarima">
+          <EntitySetMapping Name="salidaTarimas">
             <EntityTypeMapping TypeName="inventarioModel.salidaTarima">
               <MappingFragment StoreEntitySet="salidaTarima">
                 <ScalarProperty Name="idtarimaSalida" ColumnName="idtarimaSalida" />
@@ -996,7 +996,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="usuario">
+          <EntitySetMapping Name="usuarios">
             <EntityTypeMapping TypeName="inventarioModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
                 <ScalarProperty Name="idusuario" ColumnName="idusuario" />

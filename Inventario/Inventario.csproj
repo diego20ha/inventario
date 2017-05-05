@@ -86,7 +86,7 @@
       <DependentUpon>AddRecibo.cs</DependentUpon>
     </Compile>
     <Compile Include="cliente.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="clienteDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -94,30 +94,30 @@
       <DependentUpon>clienteDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="entradaTarima.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
-    </Compile>
-    <Compile Include="inventario.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventario.Context.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="inventario.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
-    </Compile>
-    <Compile Include="inventario.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventario.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="inventario1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="inventarioDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>inventarioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="inventarioEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventarioEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventarioEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventarioEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventarioEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainInventario.cs">
       <SubType>Form</SubType>
@@ -132,36 +132,36 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="ordenOrigen.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ordenResultado.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ordenTrabajo.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="proceso.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reciboEntrada.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="reciboEntradaSacos.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+    <Compile Include="reciboEntradaSaco.cs">
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="reciboSalida.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="reciboSalidaOrigen.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="reciboSalidaSacos.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+    <Compile Include="reciboSalidaSaco.cs">
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="rol.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SaleDeAgregaRecibo.cs">
       <SubType>Form</SubType>
@@ -170,10 +170,10 @@
       <DependentUpon>SaleDeAgregaRecibo.cs</DependentUpon>
     </Compile>
     <Compile Include="salidaTarima.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="usuario.cs">
-      <DependentUpon>inventario.tt</DependentUpon>
+      <DependentUpon>inventarioEntities.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddRecibo.resx">
       <DependentUpon>AddRecibo.cs</DependentUpon>
@@ -219,23 +219,6 @@
     <None Include="clienteDataSet.xss">
       <DependentUpon>clienteDataSet.xsd</DependentUpon>
     </None>
-    <EntityDeploy Include="inventario.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>inventario.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="inventario.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>inventario.edmx</DependentUpon>
-      <LastGenOutput>inventario.Context.cs</LastGenOutput>
-    </None>
-    <None Include="inventario.edmx.diagram">
-      <DependentUpon>inventario.edmx</DependentUpon>
-    </None>
-    <None Include="inventario.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>inventario.edmx</DependentUpon>
-      <LastGenOutput>inventario1.cs</LastGenOutput>
-    </None>
     <None Include="inventarioDataSet.xsc">
       <DependentUpon>inventarioDataSet.xsd</DependentUpon>
     </None>
@@ -246,6 +229,23 @@
     </None>
     <None Include="inventarioDataSet.xss">
       <DependentUpon>inventarioDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="inventarioEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>inventarioEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="inventarioEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>inventarioEntities.edmx</DependentUpon>
+      <LastGenOutput>inventarioEntities.Context.cs</LastGenOutput>
+    </None>
+    <None Include="inventarioEntities.edmx.diagram">
+      <DependentUpon>inventarioEntities.edmx</DependentUpon>
+    </None>
+    <None Include="inventarioEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>inventarioEntities.edmx</DependentUpon>
+      <LastGenOutput>inventarioEntities.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

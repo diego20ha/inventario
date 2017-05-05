@@ -443,7 +443,7 @@ namespace Inventario
             try
             {
                 int idSacos = getSacosSalidaId();
-                reciboSalidaSacos sacos = new reciboSalidaSacos();
+                reciboSalidaSaco sacos = new reciboSalidaSaco();
                 if (!String.IsNullOrEmpty(txbCantSacos1.Text))
                 {
                     sacos.idrecibosalidasacos = idSacos;
@@ -456,7 +456,7 @@ namespace Inventario
                 }
                 if (!String.IsNullOrEmpty(txbCantidadSacos2.Text))
                 {
-                    reciboSalidaSacos sacos2 = new reciboSalidaSacos();
+                    reciboSalidaSaco sacos2 = new reciboSalidaSaco();
                     idSacos++;
                     sacos2.idrecibosalidasacos = idSacos;
                     sacos2.idrecibosalida = int.Parse(txtBoxNumRec.Text);
@@ -485,7 +485,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var inventarios = (from inv in inventario.inventario
+                    var inventarios = (from inv in inventario.inventarios
                                        select inv).ToList();
 
                     if (inventarios.Count > 0)
@@ -519,20 +519,24 @@ namespace Inventario
         {
             try
             {
-                int id = 1;
+                //int id = 1;
                 using (inventarioEntities inventario = new inventarioEntities())
                 {
+                    Int32 lastID = Int32.Parse(inventario.getLastReciboSalidaID().ToString());
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var sacosList = (from sacos in inventario.reciboSalidaSacos
+                    /*
+                     * var sacosList = (from sacos in inventario.reciboSalidaSacos
                                      select sacos).ToList();
 
                     if (sacosList.Count > 0)
                     {
                         id = sacosList.Count + 1;
                     }
+                    * 
+                    */
 
-                    return id;
+                    return lastID;
                 }
             }
             catch (Exception e)
@@ -551,7 +555,7 @@ namespace Inventario
                 {
                     inventario.Configuration.AutoDetectChangesEnabled = false;
 
-                    var tarimas = (from tar in inventario.salidaTarima
+                    var tarimas = (from tar in inventario.salidaTarimas
                                    select tar).ToList();
 
                     if (tarimas.Count > 0)
@@ -579,7 +583,7 @@ namespace Inventario
 
                     if (recibo != null)
                     {
-                        inventario.reciboSalida.Add(recibo);
+                        inventario.reciboSalidas.Add(recibo);
                         inventario.SaveChanges();
                         parseTarimas();
                         parseSacos();
@@ -611,7 +615,7 @@ namespace Inventario
             }
         }
 
-        private void insertSaco(reciboSalidaSacos saco)
+        private void insertSaco(reciboSalidaSaco saco)
         {
             try
             {
@@ -642,7 +646,7 @@ namespace Inventario
 
                     if (tarima != null)
                     {
-                        inventario.salidaTarima.Add(tarima);
+                        inventario.salidaTarimas.Add(tarima);
                         inventario.SaveChanges();
                     }
                 }
@@ -664,11 +668,11 @@ namespace Inventario
             using (inventarioEntities inventario = new inventarioEntities())
             {
                 inventario.Configuration.AutoDetectChangesEnabled = false;
-
-                var recibos = (from recibo in inventario.reciboSalida
+                
+                var recibos = (from recibo in inventario.reciboSalidas
                                select recibo.idrecibosalida).ToList();
                 int recibosCount = recibos.Count;
-
+         
                 if (recibosCount > 0)
                 {
                     txtBoxNumRec.Text = (recibos[recibosCount - 1] + 1).ToString().PadLeft(4, '0');
@@ -677,6 +681,19 @@ namespace Inventario
                 {
                     txtBoxNumRec.Text = "0001";
                 }
+
+                /*
+                var elID = inventario.getLastReciboSalidaID();
+                inventario.Configuration.AutoDetectChangesEnabled = false;
+
+                if (elID != null)
+                {
+                    txtBoxNumRec.Text = elID.ToString();
+                }
+                else {
+                    txtBoxNumRec.Text = "1";
+                }
+                */
             }
         }
 
@@ -698,6 +715,11 @@ namespace Inventario
         }
 
         private void btnSaveRecibo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkAddSacos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
         }

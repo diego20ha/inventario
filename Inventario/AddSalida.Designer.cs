@@ -455,6 +455,7 @@
             this.linkAddSacos.TabIndex = 214;
             this.linkAddSacos.TabStop = true;
             this.linkAddSacos.Text = "Agregar";
+            this.linkAddSacos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAddSacos_LinkClicked);
             // 
             // panelPesoTarimas
             // 
@@ -818,7 +819,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 709);
+            this.ClientSize = new System.Drawing.Size(556, 642);
             this.Controls.Add(this.cmbSaleDe);
             this.Controls.Add(this.lblSaleDe);
             this.Controls.Add(this.btnCancelRecibo);
@@ -864,6 +865,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSalida";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Salida";
             this.Load += new System.EventHandler(this.AddSalida_Load);
             this.menuStrip1.ResumeLayout(false);

@@ -12,14 +12,14 @@ namespace Inventario
     using System;
     using System.Collections.Generic;
     
-    public partial class reciboSalidaSacos
+    public partial class reciboEntradaSaco
     {
-        public int idrecibosalidasacos { get; set; }
-        public int idrecibosalida { get; set; }
+        public int idreciboentradasacos { get; set; }
+        public int idreciboentrada { get; set; }
         public int cantidad { get; set; }
         public string tipo { get; set; }
         public double tara { get; set; }
     
-        public virtual reciboSalida reciboSalida { get; set; }
+        public virtual reciboEntrada reciboEntrada { get; set; }
     }
 }

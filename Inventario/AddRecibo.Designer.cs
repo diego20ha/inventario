@@ -816,7 +816,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 701);
+            this.ClientSize = new System.Drawing.Size(554, 642);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.cmbInventario);
             this.Controls.Add(this.txtBoxObservaciones);

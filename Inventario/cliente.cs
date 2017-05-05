@@ -16,14 +16,14 @@ namespace Inventario
     {
         public cliente()
         {
-            this.inventario = new HashSet<inventario>();
+            this.inventarios = new HashSet<inventario>();
         }
     
         public int idcliente { get; set; }
         public int idusuario { get; set; }
         public string nombrecliente { get; set; }
     
-        public virtual ICollection<inventario> inventario { get; set; }
+        public virtual ICollection<inventario> inventarios { get; set; }
         public virtual usuario usuario { get; set; }
     }
 }

@@ -16,9 +16,9 @@ namespace Inventario
     {
         public inventario()
         {
-            this.reciboEntrada = new HashSet<reciboEntrada>();
-            this.ordenTrabajo = new HashSet<ordenTrabajo>();
-            this.reciboSalida = new HashSet<reciboSalida>();
+            this.reciboEntradas = new HashSet<reciboEntrada>();
+            this.ordenTrabajoes = new HashSet<ordenTrabajo>();
+            this.reciboSalidas = new HashSet<reciboSalida>();
         }
     
         public int idinventario { get; set; }
@@ -26,8 +26,8 @@ namespace Inventario
         public string nombreinventario { get; set; }
     
         public virtual cliente cliente { get; set; }
-        public virtual ICollection<reciboEntrada> reciboEntrada { get; set; }
-        public virtual ICollection<ordenTrabajo> ordenTrabajo { get; set; }
-        public virtual ICollection<reciboSalida> reciboSalida { get; set; }
+        public virtual ICollection<reciboEntrada> reciboEntradas { get; set; }
+        public virtual ICollection<ordenTrabajo> ordenTrabajoes { get; set; }
+        public virtual ICollection<reciboSalida> reciboSalidas { get; set; }
     }
 }
