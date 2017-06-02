@@ -676,10 +676,11 @@ namespace Inventario
                 }
                 */
 
-                Int32 elID = inventario.getLastReciboEntradaID();
+                Int32 elID = inventario.getLastReciboEntradaID().FirstOrDefault() ?? -1;
 
                 if (elID != null && elID != -1)
                 {
+                    elID = elID + 1;
                     txtBoxNumRec.Text = elID.ToString().PadLeft(4, '0');
                 }
                 else

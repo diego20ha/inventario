@@ -44,9 +44,9 @@ namespace Inventario
         public DbSet<salidaTarima> salidaTarimas { get; set; }
         public DbSet<usuario> usuarios { get; set; }
     
-        public virtual int getLastReciboEntradaID()
+        public virtual ObjectResult<Nullable<int>> getLastReciboEntradaID()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("getLastReciboEntradaID");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("getLastReciboEntradaID");
         }
     
         public virtual ObjectResult<Nullable<int>> getLastReciboSalidaID()
